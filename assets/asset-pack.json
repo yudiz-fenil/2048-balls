@@ -1,6 +1,27 @@
 {
     "section1": {
-        "files": []
+        "files": [
+            {
+                "url": "assets/images/box.png",
+                "type": "image",
+                "key": "box"
+            },
+            {
+                "url": "assets/images/dashed-line.png",
+                "type": "image",
+                "key": "dashed-line"
+            },
+            {
+                "url": "src/scripts/GameManager.js",
+                "type": "script",
+                "key": "GameManager"
+            },
+            {
+                "url": "assets/images/replay.png",
+                "type": "image",
+                "key": "replay"
+            }
+        ]
     },
     "meta": {
         "app": "Phaser Editor 2D - Asset Pack Editor",
