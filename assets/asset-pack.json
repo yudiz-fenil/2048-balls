@@ -2,6 +2,19 @@
     "section1": {
         "files": [
             {
+                "url": "assets/images/balls.png",
+                "frameConfig": {
+                    "frameWidth": 68,
+                    "frameHeight": 66,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "balls"
+            },
+            {
                 "url": "assets/images/box.png",
                 "type": "image",
                 "key": "box"

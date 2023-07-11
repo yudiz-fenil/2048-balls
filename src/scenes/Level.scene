@@ -10,77 +10,49 @@
     },
     "displayList": [
         {
-            "type": "Text",
-            "id": "0368ced5-da0d-4366-8ed2-e6e5d92d3b15",
-            "label": "title",
-            "components": [
-                "PreloadText"
-            ],
-            "x": 540,
-            "y": 182,
-            "originX": 0.5,
-            "originY": 0.5,
-            "text": "2048 Balls",
-            "align": "center",
-            "fontFamily": "Verdana",
-            "fontSize": "100px"
+            "type": "Container",
+            "id": "e40400e4-7507-4e60-ad93-16a7fdb96591",
+            "label": "container_body",
+            "components": [],
+            "list": [
+                {
+                    "type": "Text",
+                    "id": "0368ced5-da0d-4366-8ed2-e6e5d92d3b15",
+                    "label": "game_title",
+                    "components": [
+                        "PreloadText"
+                    ],
+                    "x": 540,
+                    "y": 182,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "2048 Balls",
+                    "align": "center",
+                    "fontFamily": "Verdana",
+                    "fontSize": "100px"
+                },
+                {
+                    "type": "Image",
+                    "id": "6fc650c9-1df6-4da1-a5c7-2c65628e8394",
+                    "label": "box",
+                    "components": [],
+                    "texture": {
+                        "key": "box"
+                    },
+                    "x": 540,
+                    "y": 1118,
+                    "scaleX": 1.45,
+                    "scaleY": 1.3
+                }
+            ]
         },
         {
-            "type": "Image",
-            "id": "2158882a-c123-4208-b45b-ddc96444032d",
-            "label": "btn_replay",
+            "type": "Container",
+            "id": "598405ba-1fd0-427a-9435-15705f234b4b",
+            "label": "container_balls",
             "scope": "CLASS",
             "components": [],
-            "texture": {
-                "key": "replay"
-            },
-            "x": 148,
-            "y": 189,
-            "scaleX": 0.15,
-            "scaleY": 0.15,
-            "tintTopLeft": "#302f2f",
-            "tintTopRight": "#302f2f",
-            "tintBottomLeft": "#302f2f",
-            "tintBottomRight": "#302f2f",
-            "tintFill": true
-        },
-        {
-            "type": "Rectangle",
-            "id": "eefccabc-db3e-4f13-81a4-f2915863e732",
-            "label": "end_line",
-            "scope": "CLASS",
-            "components": [],
-            "x": 540,
-            "y": 489,
-            "visible": false,
-            "isFilled": true,
-            "width": 1080,
-            "height": 10
-        },
-        {
-            "type": "Image",
-            "id": "6fc650c9-1df6-4da1-a5c7-2c65628e8394",
-            "label": "box",
-            "components": [],
-            "texture": {
-                "key": "box"
-            },
-            "x": 540,
-            "y": 1118,
-            "scaleX": 1.45,
-            "scaleY": 1.3
-        },
-        {
-            "type": "Image",
-            "id": "0ece6433-6249-49b4-a74c-65fdc36927c3",
-            "label": "dashed_line",
-            "components": [],
-            "texture": {
-                "key": "dashed-line"
-            },
-            "x": 540,
-            "y": 490,
-            "scaleX": 1.35
+            "list": []
         },
         {
             "type": "Container",
@@ -89,7 +61,7 @@
             "scope": "CLASS",
             "components": [],
             "x": 840,
-            "y": 416,
+            "y": 466,
             "list": [
                 {
                     "type": "Ellipse",
@@ -97,13 +69,14 @@
                     "label": "ball_tracker",
                     "scope": "CLASS",
                     "components": [],
+                    "alpha": 0.5,
                     "isFilled": true,
                     "fillColor": "#721f0f",
                     "strokeColor": "#f00",
                     "lineWidth": 5,
                     "isStroked": true,
-                    "width": 100,
-                    "height": 100
+                    "width": 200,
+                    "height": 200
                 },
                 {
                     "type": "Text",
@@ -116,7 +89,7 @@
                     "text": "2",
                     "align": "center",
                     "fontFamily": "Verdana",
-                    "fontSize": "60px",
+                    "fontSize": "80px",
                     "fontStyle": "bold",
                     "color": "#cc381a"
                 },
@@ -130,8 +103,84 @@
                     "strokeColor": "#cc381a",
                     "lineWidth": 5,
                     "isStroked": true,
-                    "width": 100,
-                    "height": 100
+                    "width": 200,
+                    "height": 200
+                }
+            ]
+        },
+        {
+            "type": "Container",
+            "id": "b0fea357-6c3b-469f-81fa-0f582e9d9839",
+            "label": "container_endline",
+            "components": [],
+            "list": [
+                {
+                    "type": "Rectangle",
+                    "id": "eefccabc-db3e-4f13-81a4-f2915863e732",
+                    "label": "end_line",
+                    "scope": "CLASS",
+                    "components": [],
+                    "x": 540,
+                    "y": 627,
+                    "visible": false,
+                    "isFilled": true,
+                    "width": 1080,
+                    "height": 10
+                },
+                {
+                    "type": "Image",
+                    "id": "0ece6433-6249-49b4-a74c-65fdc36927c3",
+                    "label": "dashed_line",
+                    "components": [],
+                    "texture": {
+                        "key": "dashed-line"
+                    },
+                    "x": 540,
+                    "y": 628,
+                    "scaleX": 1.35
+                }
+            ]
+        },
+        {
+            "type": "Container",
+            "id": "506615b4-e0cd-41c6-abb2-06105a0c64a5",
+            "label": "container_gameover",
+            "scope": "CLASS",
+            "components": [],
+            "list": [
+                {
+                    "type": "Rectangle",
+                    "id": "d279a723-879d-4729-8361-137e74d32f1b",
+                    "label": "bg_rect",
+                    "scope": "CLASS",
+                    "components": [],
+                    "x": 540,
+                    "y": 960,
+                    "visible": false,
+                    "isFilled": true,
+                    "fillColor": "#000",
+                    "fillAlpha": 0.5,
+                    "width": 1080,
+                    "height": 1920
+                },
+                {
+                    "type": "Image",
+                    "id": "2158882a-c123-4208-b45b-ddc96444032d",
+                    "label": "btn_replay",
+                    "scope": "CLASS",
+                    "components": [],
+                    "texture": {
+                        "key": "replay"
+                    },
+                    "x": 150,
+                    "y": 190,
+                    "scaleX": 0.15,
+                    "scaleY": 0.15,
+                    "tintTopLeft": "#fff",
+                    "tintTopRight": "#fff",
+                    "tintBottomLeft": "#fff",
+                    "tintBottomRight": "#fff",
+                    "tintFill": true
                 }
             ]
         }
