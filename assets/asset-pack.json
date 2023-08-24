@@ -2,6 +2,61 @@
     "section1": {
         "files": [
             {
+                "url": "assets/images/balls/b1024.png",
+                "type": "image",
+                "key": "b1024"
+            },
+            {
+                "url": "assets/images/balls/b128.png",
+                "type": "image",
+                "key": "b128"
+            },
+            {
+                "url": "assets/images/balls/b16.png",
+                "type": "image",
+                "key": "b16"
+            },
+            {
+                "url": "assets/images/balls/b2.png",
+                "type": "image",
+                "key": "b2"
+            },
+            {
+                "url": "assets/images/balls/b2048.png",
+                "type": "image",
+                "key": "b2048"
+            },
+            {
+                "url": "assets/images/balls/b256.png",
+                "type": "image",
+                "key": "b256"
+            },
+            {
+                "url": "assets/images/balls/b32.png",
+                "type": "image",
+                "key": "b32"
+            },
+            {
+                "url": "assets/images/balls/b4.png",
+                "type": "image",
+                "key": "b4"
+            },
+            {
+                "url": "assets/images/balls/b512.png",
+                "type": "image",
+                "key": "b512"
+            },
+            {
+                "url": "assets/images/balls/b64.png",
+                "type": "image",
+                "key": "b64"
+            },
+            {
+                "url": "assets/images/balls/b8.png",
+                "type": "image",
+                "key": "b8"
+            },
+            {
                 "url": "assets/images/balls.png",
                 "frameConfig": {
                     "frameWidth": 68,
@@ -15,14 +70,34 @@
                 "key": "balls"
             },
             {
+                "url": "assets/images/balls_background.png",
+                "type": "image",
+                "key": "balls_background"
+            },
+            {
                 "url": "assets/images/box.png",
                 "type": "image",
                 "key": "box"
             },
             {
-                "url": "assets/images/dashed-line.png",
+                "url": "assets/images/bubble.png",
                 "type": "image",
-                "key": "dashed-line"
+                "key": "bubble"
+            },
+            {
+                "url": "assets/images/bubble_lock.png",
+                "type": "image",
+                "key": "bubble_lock"
+            },
+            {
+                "url": "assets/images/popups/emptystar.png",
+                "type": "image",
+                "key": "emptystar"
+            },
+            {
+                "url": "assets/images/buttons/Exit.png",
+                "type": "image",
+                "key": "Exit"
             },
             {
                 "url": "src/scripts/GameManager.js",
@@ -30,9 +105,139 @@
                 "key": "GameManager"
             },
             {
+                "url": "src/scenes/Home.js",
+                "type": "sceneFile",
+                "key": "Home"
+            },
+            {
+                "url": "assets/images/buttons/Home.png",
+                "type": "image",
+                "key": "Home_1"
+            },
+            {
+                "url": "assets/images/shootingline/l1024.png",
+                "type": "image",
+                "key": "l1024"
+            },
+            {
+                "url": "assets/images/shootingline/l128.png",
+                "type": "image",
+                "key": "l128"
+            },
+            {
+                "url": "assets/images/shootingline/l16.png",
+                "type": "image",
+                "key": "l16"
+            },
+            {
+                "url": "assets/images/shootingline/l2.png",
+                "type": "image",
+                "key": "l2"
+            },
+            {
+                "url": "assets/images/shootingline/l2048.png",
+                "type": "image",
+                "key": "l2048"
+            },
+            {
+                "url": "assets/images/shootingline/l256.png",
+                "type": "image",
+                "key": "l256"
+            },
+            {
+                "url": "assets/images/shootingline/l32.png",
+                "type": "image",
+                "key": "l32"
+            },
+            {
+                "url": "assets/images/shootingline/l4.png",
+                "type": "image",
+                "key": "l4"
+            },
+            {
+                "url": "assets/images/shootingline/l512.png",
+                "type": "image",
+                "key": "l512"
+            },
+            {
+                "url": "assets/images/shootingline/l64.png",
+                "type": "image",
+                "key": "l64"
+            },
+            {
+                "url": "assets/images/shootingline/l8.png",
+                "type": "image",
+                "key": "l8"
+            },
+            {
+                "url": "assets/images/lock_base.png",
+                "type": "image",
+                "key": "lock_base"
+            },
+            {
+                "url": "assets/images/popups/lost.png",
+                "type": "image",
+                "key": "lost"
+            },
+            {
+                "url": "assets/images/buttons/Music_Off.png",
+                "type": "image",
+                "key": "Music_Off"
+            },
+            {
+                "url": "assets/images/buttons/Music_On.png",
+                "type": "image",
+                "key": "Music_On"
+            },
+            {
+                "url": "assets/images/buttons/Play_Button.png",
+                "type": "image",
+                "key": "Play_Button"
+            },
+            {
                 "url": "assets/images/replay.png",
                 "type": "image",
                 "key": "replay"
+            },
+            {
+                "url": "assets/images/buttons/Restart.png",
+                "type": "image",
+                "key": "Restart"
+            },
+            {
+                "url": "assets/images/score_base.png",
+                "type": "image",
+                "key": "score_base"
+            },
+            {
+                "url": "assets/images/shoot_ball_bubble.png",
+                "type": "image",
+                "key": "shoot_ball_bubble"
+            },
+            {
+                "url": "assets/images/buttons/Sound_Off.png",
+                "type": "image",
+                "key": "Sound_Off"
+            },
+            {
+                "url": "assets/images/buttons/Sound_On.png",
+                "type": "image",
+                "key": "Sound_On"
+            },
+            {
+                "url": "assets/images/popups/star.png",
+                "type": "image",
+                "key": "star"
+            },
+            {
+                "url": "assets/images/popups/Ui_Base.png",
+                "type": "image",
+                "key": "Ui_Base"
+            },
+            {
+                "url": "assets/images/popups/won.png",
+                "type": "image",
+                "key": "won"
             }
         ]
     },

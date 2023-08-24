@@ -22,11 +22,14 @@ class Preload extends Phaser.Scene {
 	/** @returns {void} */
 	editorCreate() {
 
+		// background
+		this.add.image(540, 960, "background");
+
 		// progress
-		const progress = this.add.text(540, 1110, "", {});
+		const progress = this.add.text(540, 1224, "", {});
 		progress.setOrigin(0.5, 0.5);
 		progress.text = "0%";
-		progress.setStyle({ "fontFamily": "Verdana", "fontSize": "100px" });
+		progress.setStyle({ "fontSize": "100px" });
 
 		// logo
 		this.add.image(540, 860, "logo");

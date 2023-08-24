@@ -5,7 +5,7 @@ window.addEventListener('load', function () {
 		width: 1080,
 		height: 1920,
 		type: Phaser.AUTO,
-		backgroundColor: "#434243",
+		transparent: true,
 		parent: 'game-division',
 		scale: {
 			mode: Phaser.Scale.FIT,
@@ -21,7 +21,7 @@ window.addEventListener('load', function () {
 			default: 'arcade',
 			arcade: {
 				gravity: { y: 0 },
-				debug: false
+				debug: true
 			}
 		}
 	});
