@@ -169,7 +169,7 @@ class Level extends Phaser.Scene {
 		// txt_popup_score
 		const txt_popup_score = this.add.text(-1.4822452632960221, 155.9586640360045, "", {});
 		txt_popup_score.setOrigin(0.5, 0.5);
-		txt_popup_score.text = "2048";
+		txt_popup_score.text = "0";
 		txt_popup_score.setStyle({ "align": "center", "fontSize": "52px", "stroke": "#2B5873", "strokeThickness": 4, "shadow.color": "#2B5873", "shadow.blur": 2, "shadow.stroke": true, "shadow.fill": true });
 		container_popup.add(txt_popup_score);
 
@@ -281,7 +281,6 @@ class Level extends Phaser.Scene {
 			}
 		});
 	}
-
 	musicHandler = () => {
 		this.btnAnimation(this.btn_music_on);
 		if (this.btn_music_on.texture.key == "Music_On") {
@@ -302,24 +301,39 @@ class Level extends Phaser.Scene {
 		this.nScore += nValue;
 		this.txt_score.setText(this.nScore);
 	}
-	resetScore = () => {
-		this.nScore = 0;
-		this.txt_score.setText(0);
-		this.txt_popup_score.setText(0);
+	goToHome = () => {
+		this.scene.stop("Level")
+		this.scene.start("Home")
 	}
-	countStar = () => {
-
+	popTextAnimation = (n, x, y) => {
+		const popup_text = this.add.text(x, y, "+" + n, {});
+		popup_text.setOrigin(0.5, 0.5);
+		popup_text.setDepth(11);
+		popup_text.setStyle({ "align": "center", "color": this.oBalls[n].sColor, "fontSize": "64px" });
+		// popup_text.setStyle({ "align": "center", "color": "#FFFFFF", "fontSize": "64px" });
+		this.tweens.add({
+			targets: popup_text,
+			x: x,
+			y: y - 300,
+			duration: 700,
+			onComplete: () => {
+				popup_text.destroy();
+			}
+		})
 	}
 	create() {
 		this.oGameManager = new GameManager(this);
 		this.editorCreate();
+		this.oBalls = this.oGameManager.oBalls;
 		this.nScore = 0;
 		this.updateScore(0);
 		this.nCurrentBall = 2;
 		this.ballsGroup = this.add.group();
 		this.isGameOver = false;
-		this.oBalls = this.oGameManager.oBalls;
 		this.btn_replay.setInteractive().on('pointerdown', () => this.scene.restart());
+		this.btn_exit.setInteractive().on('pointerdown', () => this.goToHome());
+		this.btn_home.setInteractive().on('pointerdown', () => this.goToHome());
+		this.bg_rect.setInteractive().on('pointerdown', () => { });
 		this.physics.add.existing(this.end_line);
 		this.physics.add.collider(this.ballsGroup, this.ballsGroup, this.mergeballs);
 		this.physics.add.overlap(this.ballsGroup, this.end_line, () => this.gameOver());
@@ -332,16 +346,13 @@ class Level extends Phaser.Scene {
 		this.aLockedBalls = [4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048];
 		this.bubbles = this.add.particles("bubble").setDepth(10);
 		this.particleStar = this.add.particles("star").setDepth(10);
-
 		this.btn_music_on.setInteractive().on('pointerdown', (e) => {
 			this.musicHandler()
-			this.popupAnimation()
 		});
 		this.btn_sound_on.setInteractive().on('pointerdown', (e) => {
 			this.soundHandler()
 		});
 	}
-
 	showBubbles = (x, y) => {
 		const bubbleParticles = this.bubbles.createEmitter({
 			x: x,
@@ -358,7 +369,6 @@ class Level extends Phaser.Scene {
 			bubbleParticles.remove();
 		}, 600);
 	}
-
 	ballToUnlock = (nBall) => {
 		if (this.aLockedBalls.length && this.aLockedBalls.includes(nBall)) {
 			this.aLockedBalls.shift();
@@ -366,31 +376,37 @@ class Level extends Phaser.Scene {
 			this.lock_ball.setDisplaySize(123, 123);
 		}
 	}
-
+	countStar = () => {
+		if (this.aLockedBalls.length == 1) return 2
+		if (this.aLockedBalls.length == 2) return 1
+		return 0;
+	}
 	mergeballs = (ball1, ball2) => {
-		if (ball1.name == ball2.name) {
-			const newSize = parseInt(ball1.name) * 2;
+		if (!this.isGameOver) {
+			if (ball1.name == ball2.name) {
+				const newSize = parseInt(ball1.name) * 2;
 
-			ball1.setName(newSize);
-			ball1.setTexture(this.oBalls[newSize].sTexture);
-			const body = ball1.body;
-			body.setCircle((ball1.width / 2) - 6);
-			body.setOffset(6, 6);
-			body.setBounce(0.7);
+				ball1.setName(newSize);
+				ball1.setTexture(this.oBalls[newSize].sTexture);
+				const body = ball1.body;
+				body.setCircle((ball1.width / 2) - 6);
+				body.setOffset(6, 6);
+				body.setBounce(0.7);
 
-			if (newSize == 2048) this.winGame();
-			this.ballToUnlock(newSize);
-			this.updateScore(newSize);
-			this.showBubbles(ball1.x, ball1.y);
-			ball2.destroy();
-		} else {
-			ball1.body.setFriction(0);
-			ball2.body.setFriction(0);
-			ball1.body.setBounce(0.8);
-			ball2.body.setBounce(0.8);
+				this.showBubbles(ball1.x, ball1.y);
+				this.updateScore(newSize);
+				this.popTextAnimation(newSize, ball1.x, ball1.y);
+				// ball2.destroy();
+				if (newSize == 2048) this.winGame();
+				this.ballToUnlock(newSize);
+			} else {
+				ball1.body.setFriction(0);
+				ball2.body.setFriction(0);
+				ball1.body.setBounce(0.8);
+				ball2.body.setBounce(0.8);
+			}
 		}
 	}
-
 	generateBall = (sBall) => {
 		if (this.container_ball_tracker.visible && !this.isGameOver) {
 			const ball1 = this.physics.add.image(this.container_ball_tracker.x, this.end_line.y + 140, this.oBalls[sBall].sTexture);
@@ -412,7 +428,7 @@ class Level extends Phaser.Scene {
 	trackBall = (pointer) => {
 		let x = pointer.x;
 		x = Math.min(Math.max(145, x), 935);
-		this.container_ball_tracker.x = x;
+		if (!this.isGameOver) this.container_ball_tracker.x = x;
 	}
 	getBall = () => {
 		const balls = [2, 4, 8, 2, 4, 8, 2, 4, 8, 16, 16]
@@ -442,13 +458,16 @@ class Level extends Phaser.Scene {
 		}, 1000);
 	}
 	gameOver = () => {
-		if (!this.isGameOver) this.popupAnimation();
+		if (!this.isGameOver) this.popupAnimation(this.countStar());
 	}
 	winGame = () => {
-		this.popupAnimation();
+		this.isGameOver = true;
+		this.popupAnimation(3);
 		this.showConfetti();
 	}
-	popupAnimation = () => {
+	popupAnimation = (nStar) => {
+		this.physics.pause();
+		this.txt_popup_score.setText(this.nScore);
 		this.container_popup.setScale(0, 0);
 		this.container_popup.setVisible(true);
 		this.isGameOver = true;
@@ -461,7 +480,7 @@ class Level extends Phaser.Scene {
 			duration: 200,
 			onComplete: () => {
 				setTimeout(() => {
-					this.starAnimation(3);
+					this.starAnimation(nStar);
 				}, 500);
 			}
 		})
@@ -490,7 +509,7 @@ class Level extends Phaser.Scene {
 		for (let i = 1; i <= nStar; i++) {
 			const star = this.container_stars.list[i - 1]
 			this.container_stars.list[0].setVisible(true);
-			star.setScale(5, 5);
+			star.setScale(3, 3);
 			this.tweens.add({
 				targets: star,
 				scaleX: i == 2 ? scale2 : scale1,
@@ -499,7 +518,7 @@ class Level extends Phaser.Scene {
 				duration: 400,
 				delay: nDelay,
 				onComplete: () => {
-					if (i < 3) this.container_stars.list[i].setVisible(true);
+					if (i < nStar) this.container_stars.list[i].setVisible(true);
 					// this.showStarParticle(star);
 				}
 			})
