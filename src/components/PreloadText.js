@@ -10,16 +10,16 @@ class PreloadText extends UserComponent {
 
 		/* START-USER-CTR-CODE */
 
-		this.initialTime = 20;
+		this.initialTime = 2;
 		this.timeLeft = this.timeLeft;
 
 		this.loading = () => {
 			this.gameTimer = this.scene.time.addEvent({
-				delay: 1000,
+				delay: 500,
 				callback: function () {
 					this.timeLeft--;
 					let stepWidth = this.energyMask.displayWidth / this.initialTime;
-					this.energyMask.x += stepWidth;
+					this.energyMask.x -= stepWidth;
 					if (this.timeLeft == 0) {
 						this.scene.start("Level");
 					}
@@ -32,9 +32,9 @@ class PreloadText extends UserComponent {
 
 		this.scene.load.on(Phaser.Loader.Events.PROGRESS, p => {
 			this.gameObject.text = Math.floor(p * 100) + "%";
-			// this.energyMask = this.scene.add.sprite(this.scene.mask_rect.x, this.scene.mask_rect.y, "progress_bar");
-			// this.energyMask.visible = false;
-			// this.scene.energyBar.mask = new Phaser.Display.Masks.BitmapMask(this.scene, this.energyMask);
+			this.energyMask = this.scene.add.sprite(this.scene.mask_rect.x, this.scene.mask_rect.y, "progress_bar");
+			this.energyMask.visible = false;
+			this.scene.energyBar.mask = new Phaser.Display.Masks.BitmapMask(this.scene, this.energyMask);
 		});
 
 		/* END-USER-CTR-CODE */

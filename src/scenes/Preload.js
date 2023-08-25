@@ -41,7 +41,7 @@ class Preload extends Phaser.Scene {
 		energyContainer.visible = false;
 
 		// energyBar
-		const energyBar = this.add.image(214, 1660, "progress_bar");
+		const energyBar = this.add.image(540, 1660, "progress_bar");
 		energyBar.visible = false;
 
 		// text
