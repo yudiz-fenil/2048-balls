@@ -10,6 +10,16 @@
                 "url": "assets/images/logo.png",
                 "type": "image",
                 "key": "logo"
+            },
+            {
+                "url": "assets/images/progress_bar.png",
+                "type": "image",
+                "key": "progress_bar"
+            },
+            {
+                "url": "assets/images/progress_bar_base.png",
+                "type": "image",
+                "key": "progress_bar_base"
             }
         ]
     },

@@ -238,6 +238,11 @@
                 "url": "assets/images/popups/won.png",
                 "type": "image",
                 "key": "won"
+            },
+            {
+                "url": "assets/images/yellow_border.png",
+                "type": "image",
+                "key": "yellow_border"
             }
         ]
     },

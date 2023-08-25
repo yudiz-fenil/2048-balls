@@ -29,7 +29,9 @@
                 "key": "logo"
             },
             "x": 540,
-            "y": 574
+            "y": 540,
+            "scaleX": 0.8,
+            "scaleY": 0.8
         },
         {
             "type": "Image",
@@ -41,7 +43,35 @@
                 "key": "Play_Button"
             },
             "x": 540,
-            "y": 1380
+            "y": 1213
+        },
+        {
+            "type": "Image",
+            "id": "93485541-c0df-495f-957a-9cc80a0958bf",
+            "label": "btn_music_on",
+            "scope": "CLASS",
+            "components": [],
+            "texture": {
+                "key": "Music_On"
+            },
+            "x": 290,
+            "y": 1630,
+            "scaleX": 0.8,
+            "scaleY": 0.8
+        },
+        {
+            "type": "Image",
+            "id": "d0105f50-dd68-47aa-8605-ad3ee93f65e5",
+            "label": "btn_sound_on",
+            "scope": "CLASS",
+            "components": [],
+            "texture": {
+                "key": "Sound_On"
+            },
+            "x": 790,
+            "y": 1630,
+            "scaleX": 0.8,
+            "scaleY": 0.8
         }
     ],
     "plainObjects": [],

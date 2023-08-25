@@ -29,7 +29,7 @@ class Level extends Phaser.Scene {
 		container_body.add(balls_background);
 
 		// world_rect
-		const world_rect = this.add.rectangle(21, 293, 1036, 1457);
+		const world_rect = this.add.rectangle(21, 293, 1036, 1451);
 		world_rect.setOrigin(0, 0);
 		world_rect.visible = false;
 		world_rect.isStroked = true;
@@ -46,9 +46,9 @@ class Level extends Phaser.Scene {
 		container_footer.add(lock_base);
 
 		// lock_ball
-		const lock_ball = this.add.image(23, 0, "b2");
-		lock_ball.scaleX = 0.7;
-		lock_ball.scaleY = 0.7;
+		const lock_ball = this.add.image(23, 0, "b4");
+		lock_ball.scaleX = 0.65;
+		lock_ball.scaleY = 0.65;
 		container_footer.add(lock_ball);
 
 		// bubble_lock
@@ -86,6 +86,11 @@ class Level extends Phaser.Scene {
 		end_line.visible = false;
 		end_line.isFilled = true;
 		container_endline.add(end_line);
+
+		// yellow_border
+		const yellow_border = this.add.image(-14, 270, "yellow_border");
+		yellow_border.setOrigin(0, 0);
+		container_endline.add(yellow_border);
 
 		// container_header
 		const container_header = this.add.container(0, 0);
@@ -309,8 +314,7 @@ class Level extends Phaser.Scene {
 		const popup_text = this.add.text(x, y, "+" + n, {});
 		popup_text.setOrigin(0.5, 0.5);
 		popup_text.setDepth(11);
-		popup_text.setStyle({ "align": "center", "color": this.oBalls[n].sColor, "fontSize": "64px" });
-		// popup_text.setStyle({ "align": "center", "color": "#FFFFFF", "fontSize": "64px" });
+		popup_text.setStyle({ "align": "center", "color": "#FFFFFF", "fontSize": "64px" });
 		this.tweens.add({
 			targets: popup_text,
 			x: x,
@@ -413,16 +417,16 @@ class Level extends Phaser.Scene {
 			this.container_balls.add(ball1);
 			ball1.setName(this.oBalls[sBall].nLabel);
 			this.ballsGroup.add(ball1);
-			const ballBody = ball1.body;
-			ballBody.setCollideWorldBounds(true);
-			ballBody.setCircle((ball1.width / 2) - 6);
-			ballBody.setOffset(6, 6);
-			ballBody.setBounce(0.3);
-			ballBody.setMass(5);
-			ballBody.gravity.y = 8000;
+			const body = ball1.body;
+			body.setCollideWorldBounds(true);
+			body.setCircle((ball1.width / 2) - 6);
+			body.setOffset(6, 6);
+			body.setBounce(0.3);
+			body.setMass(5);
+			body.gravity.y = 8000;
 			this.handleTracker();
 
-			ballBody.setBoundsRectangle(new Phaser.Geom.Rectangle(this.world_rect.x, this.world_rect.y, this.world_rect.width, this.world_rect.height));
+			body.setBoundsRectangle(new Phaser.Geom.Rectangle(this.world_rect.x, this.world_rect.y, this.world_rect.width, this.world_rect.height));
 		}
 	}
 	trackBall = (pointer) => {
@@ -462,8 +466,9 @@ class Level extends Phaser.Scene {
 	}
 	winGame = () => {
 		this.isGameOver = true;
+		this.pop_status_label.setTexture("won");
 		this.popupAnimation(3);
-		this.showConfetti();
+		// this.showConfetti();
 	}
 	popupAnimation = (nStar) => {
 		this.physics.pause();

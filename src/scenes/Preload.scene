@@ -31,7 +31,7 @@
                 "PreloadText"
             ],
             "x": 540,
-            "y": 1224,
+            "y": 1225,
             "originX": 0.5,
             "originY": 0.5,
             "text": "0%",
@@ -46,7 +46,69 @@
                 "key": "logo"
             },
             "x": 540,
-            "y": 860
+            "y": 540,
+            "scaleX": 0.8,
+            "scaleY": 0.8
+        },
+        {
+            "type": "Image",
+            "id": "d82afff9-7989-4015-bec9-c754720853de",
+            "label": "energyContainer",
+            "scope": "CLASS",
+            "components": [],
+            "texture": {
+                "key": "progress_bar_base"
+            },
+            "x": 540,
+            "y": 1660,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "8348a66c-eb19-4bba-9a4d-9fd337d596d6",
+            "label": "energyBar",
+            "scope": "CLASS",
+            "components": [],
+            "texture": {
+                "key": "progress_bar"
+            },
+            "x": 214,
+            "y": 1660,
+            "visible": false
+        },
+        {
+            "type": "Text",
+            "id": "8827c2f6-fc79-4948-8391-8a42b0baa6ad",
+            "label": "text",
+            "components": [],
+            "x": 540,
+            "y": 1572,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "LOADING...",
+            "align": "center",
+            "fontSize": "44px",
+            "stroke": "#2B5873",
+            "strokeThickness": 5,
+            "shadow.stroke": true,
+            "shadow.fill": true,
+            "shadow.color": "#2B5873",
+            "shadow.blur": 2
+        },
+        {
+            "type": "Rectangle",
+            "id": "f3db1c5c-f5c6-4540-9b30-1b7c047e6e0d",
+            "label": "mask_rect",
+            "scope": "CLASS",
+            "components": [],
+            "x": 539.5,
+            "y": 1659,
+            "visible": false,
+            "fillAlpha": 0,
+            "strokeColor": "#000",
+            "isStroked": true,
+            "width": 707,
+            "height": 48
         }
     ],
     "plainObjects": [],

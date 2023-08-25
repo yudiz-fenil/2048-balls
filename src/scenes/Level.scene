@@ -55,7 +55,7 @@
                     "lineWidth": 5,
                     "isStroked": true,
                     "width": 1036,
-                    "height": 1457
+                    "height": 1451
                 }
             ]
         },
@@ -85,11 +85,11 @@
                     "scope": "CLASS",
                     "components": [],
                     "texture": {
-                        "key": "b2"
+                        "key": "b4"
                     },
                     "x": 23,
-                    "scaleX": 0.7,
-                    "scaleY": 0.7
+                    "scaleX": 0.65,
+                    "scaleY": 0.65
                 },
                 {
                     "type": "Image",
@@ -176,6 +176,19 @@
                     "isFilled": true,
                     "width": 1080,
                     "height": 10
+                },
+                {
+                    "type": "Image",
+                    "id": "36a7ec20-95e9-4f7f-8a4c-ea8f02c6a9cd",
+                    "label": "yellow_border",
+                    "components": [],
+                    "texture": {
+                        "key": "yellow_border"
+                    },
+                    "x": -14,
+                    "y": 270,
+                    "originX": 0,
+                    "originY": 0
                 }
             ]
         },
