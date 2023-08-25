@@ -396,7 +396,7 @@ class Level extends Phaser.Scene {
 				this.showBubbles(ball1.x, ball1.y);
 				this.updateScore(newSize);
 				this.popTextAnimation(newSize, ball1.x, ball1.y);
-				// ball2.destroy();
+				ball2.destroy();
 				if (newSize == 2048) this.winGame();
 				this.ballToUnlock(newSize);
 			} else {
