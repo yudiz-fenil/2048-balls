@@ -361,6 +361,9 @@ class Level extends Phaser.Scene {
 		this.container_ball_tracker.setSize(1080, 1920);
 		this.container_ball_tracker.setInteractive();
 		this.input.setDraggable(this.container_ball_tracker);
+		this.container_ball_tracker.on('pointerup', (p, g) => {
+			this.generateBall(this.nCurrentBall)
+		});
 	}
 	showBubbles = (x, y) => {
 		const bubbleParticles = this.bubbles.createEmitter({
