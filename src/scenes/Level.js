@@ -56,7 +56,7 @@ class Level extends Phaser.Scene {
 		container_footer.add(bubble_lock);
 
 		// container_ball_tracker
-		const container_ball_tracker = this.add.container(843, 216);
+		const container_ball_tracker = this.add.container(970, 216);
 
 		// ball_tracker_img
 		const ball_tracker_img = this.add.image(0, 0, "b2");
@@ -341,8 +341,10 @@ class Level extends Phaser.Scene {
 		this.physics.add.existing(this.end_line);
 		this.physics.add.collider(this.ballsGroup, this.ballsGroup, this.mergeballs);
 		this.physics.add.overlap(this.ballsGroup, this.end_line, () => this.gameOver());
-		this.input.on('pointermove', this.trackBall);
-		this.input.on('pointerdown', (p, g) => {
+		this.input.on('pointermove', (p) => {
+			this.trackBall(p);
+		});
+		this.input.on('pointerup', (p, g) => {
 			if (!g.length) {
 				this.generateBall(this.nCurrentBall)
 			}
@@ -356,10 +358,9 @@ class Level extends Phaser.Scene {
 		this.btn_sound_on.setInteractive().on('pointerdown', (e) => {
 			this.soundHandler()
 		});
-		this.container_ball_tracker.setSize(this.shoot_ball_bubble.width, this.shoot_ball_bubble.height);
+		this.container_ball_tracker.setSize(1080, 1920);
 		this.container_ball_tracker.setInteractive();
 		this.input.setDraggable(this.container_ball_tracker);
-		this.container_ball_tracker.on('dragend', () => this.generateBall(this.nCurrentBall))
 	}
 	showBubbles = (x, y) => {
 		const bubbleParticles = this.bubbles.createEmitter({
@@ -435,7 +436,7 @@ class Level extends Phaser.Scene {
 	}
 	trackBall = (pointer) => {
 		let x = pointer.x;
-		x = Math.min(Math.max(145, x), 935);
+		x = Math.min(Math.max(110, x), 970);
 		if (!this.isGameOver) this.container_ball_tracker.x = x;
 	}
 	getBall = () => {
