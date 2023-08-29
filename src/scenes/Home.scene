@@ -18,7 +18,24 @@
                 "key": "background"
             },
             "x": 540,
-            "y": 960
+            "y": 960,
+            "visible": false
+        },
+        {
+            "type": "Rectangle",
+            "id": "5fe82193-d2aa-4701-971d-13ff531877ba",
+            "label": "balls_bg_rect_2",
+            "components": [],
+            "originX": 0,
+            "originY": 0,
+            "isFilled": true,
+            "fillColor": "#78A7DD",
+            "fillAlpha": 0.2,
+            "strokeColor": "#000",
+            "strokeAlpha": 5,
+            "lineWidth": 5,
+            "width": 1080,
+            "height": 1920
         },
         {
             "type": "Image",

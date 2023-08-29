@@ -21,7 +21,8 @@
                 "key": "background"
             },
             "x": 540,
-            "y": 960
+            "y": 960,
+            "visible": false
         },
         {
             "type": "Text",
@@ -72,7 +73,7 @@
             "texture": {
                 "key": "progress_bar"
             },
-            "x": 540,
+            "x": -160,
             "y": 1660,
             "visible": false
         },
@@ -109,6 +110,22 @@
             "isStroked": true,
             "width": 707,
             "height": 48
+        },
+        {
+            "type": "Rectangle",
+            "id": "c68056a0-f6fc-4e3e-b572-9f023c318484",
+            "label": "balls_bg_rect_2",
+            "components": [],
+            "originX": 0,
+            "originY": 0,
+            "isFilled": true,
+            "fillColor": "#78A7DD",
+            "fillAlpha": 0.2,
+            "strokeColor": "#000",
+            "strokeAlpha": 5,
+            "lineWidth": 5,
+            "width": 1080,
+            "height": 1920
         }
     ],
     "plainObjects": [],

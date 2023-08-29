@@ -17,7 +17,18 @@ class Home extends Phaser.Scene {
 	editorCreate() {
 
 		// background
-		this.add.image(540, 960, "background");
+		const background = this.add.image(540, 960, "background");
+		background.visible = false;
+
+		// balls_bg_rect_2
+		const balls_bg_rect_2 = this.add.rectangle(0, 0, 1080, 1920);
+		balls_bg_rect_2.setOrigin(0, 0);
+		balls_bg_rect_2.isFilled = true;
+		balls_bg_rect_2.fillColor = 7907293;
+		balls_bg_rect_2.fillAlpha = 0.2;
+		balls_bg_rect_2.strokeColor = 0;
+		balls_bg_rect_2.strokeAlpha = 5;
+		balls_bg_rect_2.lineWidth = 5;
 
 		// logo
 		const logo = this.add.image(540, 540, "logo");

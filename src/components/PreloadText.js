@@ -10,16 +10,16 @@ class PreloadText extends UserComponent {
 
 		/* START-USER-CTR-CODE */
 
-		this.initialTime = 2;
+		this.initialTime = 10;
 		this.timeLeft = this.timeLeft;
 
 		this.loading = () => {
 			this.gameTimer = this.scene.time.addEvent({
-				delay: 500,
+				delay: 1000,
 				callback: function () {
 					this.timeLeft--;
 					let stepWidth = this.energyMask.displayWidth / this.initialTime;
-					this.energyMask.x -= stepWidth;
+					this.energyMask.x += stepWidth;
 					if (this.timeLeft == 0) {
 						this.scene.start("Level");
 					}
@@ -28,7 +28,8 @@ class PreloadText extends UserComponent {
 				loop: true
 			});
 		}
-		// this.loading();
+
+		this.loading();
 
 		this.scene.load.on(Phaser.Loader.Events.PROGRESS, p => {
 			this.gameObject.text = Math.floor(p * 100) + "%";

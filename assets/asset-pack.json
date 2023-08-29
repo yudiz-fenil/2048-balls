@@ -57,27 +57,19 @@
                 "key": "b8"
             },
             {
-                "url": "assets/images/balls.png",
-                "frameConfig": {
-                    "frameWidth": 68,
-                    "frameHeight": 66,
-                    "startFrame": 0,
-                    "endFrame": -1,
-                    "spacing": 0,
-                    "margin": 0
-                },
-                "type": "spritesheet",
-                "key": "balls"
-            },
-            {
                 "url": "assets/images/balls_background.png",
                 "type": "image",
                 "key": "balls_background"
             },
             {
-                "url": "assets/images/box.png",
+                "url": "assets/images/buttons/btn_info.png",
                 "type": "image",
-                "key": "box"
+                "key": "btn_info"
+            },
+            {
+                "url": "assets/images/buttons/btn_settings.png",
+                "type": "image",
+                "key": "btn_settings"
             },
             {
                 "url": "assets/images/bubble.png",
@@ -115,16 +107,6 @@
                 "key": "Home_1"
             },
             {
-                "url": "assets/images/shootingline/l1024.png",
-                "type": "image",
-                "key": "l1024"
-            },
-            {
-                "url": "assets/images/shootingline/l128.png",
-                "type": "image",
-                "key": "l128"
-            },
-            {
                 "url": "assets/images/shootingline/l16.png",
                 "type": "image",
                 "key": "l16"
@@ -135,34 +117,9 @@
                 "key": "l2"
             },
             {
-                "url": "assets/images/shootingline/l2048.png",
-                "type": "image",
-                "key": "l2048"
-            },
-            {
-                "url": "assets/images/shootingline/l256.png",
-                "type": "image",
-                "key": "l256"
-            },
-            {
-                "url": "assets/images/shootingline/l32.png",
-                "type": "image",
-                "key": "l32"
-            },
-            {
                 "url": "assets/images/shootingline/l4.png",
                 "type": "image",
                 "key": "l4"
-            },
-            {
-                "url": "assets/images/shootingline/l512.png",
-                "type": "image",
-                "key": "l512"
-            },
-            {
-                "url": "assets/images/shootingline/l64.png",
-                "type": "image",
-                "key": "l64"
             },
             {
                 "url": "assets/images/shootingline/l8.png",

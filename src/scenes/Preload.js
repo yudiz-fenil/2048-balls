@@ -23,7 +23,8 @@ class Preload extends Phaser.Scene {
 	editorCreate() {
 
 		// background
-		this.add.image(540, 960, "background");
+		const background = this.add.image(540, 960, "background");
+		background.visible = false;
 
 		// progress
 		const progress = this.add.text(540, 1225, "", {});
@@ -41,7 +42,7 @@ class Preload extends Phaser.Scene {
 		energyContainer.visible = false;
 
 		// energyBar
-		const energyBar = this.add.image(540, 1660, "progress_bar");
+		const energyBar = this.add.image(-160, 1660, "progress_bar");
 		energyBar.visible = false;
 
 		// text
@@ -56,6 +57,16 @@ class Preload extends Phaser.Scene {
 		mask_rect.fillAlpha = 0;
 		mask_rect.isStroked = true;
 		mask_rect.strokeColor = 0;
+
+		// balls_bg_rect_2
+		const balls_bg_rect_2 = this.add.rectangle(0, 0, 1080, 1920);
+		balls_bg_rect_2.setOrigin(0, 0);
+		balls_bg_rect_2.isFilled = true;
+		balls_bg_rect_2.fillColor = 7907293;
+		balls_bg_rect_2.fillAlpha = 0.2;
+		balls_bg_rect_2.strokeColor = 0;
+		balls_bg_rect_2.strokeAlpha = 5;
+		balls_bg_rect_2.lineWidth = 5;
 
 		// progress (components)
 		new PreloadText(progress);
@@ -84,11 +95,21 @@ class Preload extends Phaser.Scene {
 
 		this.editorPreload();
 
+		this.isGameLoaded1 = false;
+		this.isGameLoaded2 = false;
+
 		this.load.on(Phaser.Loader.Events.COMPLETE, (p) => this.scene.start("Home"));
 		// this.load.on(Phaser.Loader.Events.COMPLETE, (p) => {
-
+		// 	this.isGameLoaded1 = true;
 		// });
 
+	}
+
+	update() {
+		if (this.isGameLoaded1 && this.isGameLoaded2) {
+			this.scene.stop("Preload");
+			this.scene.start("Home")
+		}
 	}
 
 	/* END-USER-CODE */

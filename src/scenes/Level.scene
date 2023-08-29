@@ -24,20 +24,42 @@
                         "key": "background"
                     },
                     "x": 540,
-                    "y": 960
+                    "y": 960,
+                    "visible": false
                 },
                 {
-                    "type": "Image",
-                    "id": "aaba3ab9-cf23-4260-a19d-26e4d0a9c2e6",
-                    "label": "balls_background",
+                    "type": "Rectangle",
+                    "id": "786245dc-eba9-470f-aa73-75f24a1b4bc3",
+                    "label": "balls_bg_rect_2",
                     "components": [],
-                    "texture": {
-                        "key": "balls_background"
-                    },
-                    "x": -14,
-                    "y": 270,
                     "originX": 0,
-                    "originY": 0
+                    "originY": 0,
+                    "isFilled": true,
+                    "fillColor": "#78A7DD",
+                    "fillAlpha": 0.2,
+                    "strokeColor": "#000",
+                    "strokeAlpha": 5,
+                    "lineWidth": 5,
+                    "width": 1080,
+                    "height": 1920
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "ae845826-6e70-4874-9149-8af60c723923",
+                    "label": "balls_bg_rect",
+                    "components": [],
+                    "x": -14,
+                    "y": 285,
+                    "originX": 0,
+                    "originY": 0,
+                    "isFilled": true,
+                    "fillColor": "#000000",
+                    "fillAlpha": 0.25,
+                    "strokeColor": "#000",
+                    "strokeAlpha": 5,
+                    "lineWidth": 5,
+                    "width": 1108,
+                    "height": 1482
                 },
                 {
                     "type": "Rectangle",
@@ -68,15 +90,32 @@
             "y": 1840,
             "list": [
                 {
+                    "type": "Rectangle",
+                    "id": "be7dca9b-8ec0-4fd6-ba7d-c48551568b9c",
+                    "label": "balls_bg_rect_1",
+                    "components": [],
+                    "x": 31,
+                    "originY": 0,
+                    "isFilled": true,
+                    "fillColor": "#000000",
+                    "fillAlpha": 0.25,
+                    "strokeColor": "#000",
+                    "strokeAlpha": 5,
+                    "lineWidth": 5,
+                    "width": 1108,
+                    "height": 1482
+                },
+                {
                     "type": "Image",
                     "id": "e8fce172-9fbe-4be4-8a6f-225726ca9541",
                     "label": "lock_base",
                     "components": [],
                     "texture": {
-                        "key": "lock_base"
+                        "key": "yellow_border"
                     },
                     "x": 31,
-                    "y": 49
+                    "y": -21,
+                    "originY": 0
                 },
                 {
                     "type": "Image",
@@ -207,7 +246,7 @@
                         "key": "score_base"
                     },
                     "x": 909,
-                    "y": 95
+                    "y": 18
                 },
                 {
                     "type": "Text",
@@ -216,19 +255,19 @@
                     "scope": "CLASS",
                     "components": [],
                     "x": 909,
-                    "y": 95,
+                    "y": 118,
                     "originX": 0.5,
                     "originY": 0.5,
-                    "text": "508",
+                    "text": "0",
                     "align": "center",
                     "fontSize": "40px",
-                    "stroke": "#A80062",
+                    "stroke": "#2B5873",
                     "strokeThickness": 3,
                     "shadow.offsetX": 1,
                     "shadow.offsetY": 1,
                     "shadow.stroke": true,
                     "shadow.fill": true,
-                    "shadow.color": "#A80062",
+                    "shadow.color": "#2B5873",
                     "shadow.blur": 2
                 },
                 {
@@ -237,7 +276,7 @@
                     "label": "text",
                     "components": [],
                     "x": 909,
-                    "y": 22,
+                    "y": 60,
                     "originX": 0.5,
                     "originY": 0.5,
                     "text": "SCORE",
@@ -260,10 +299,11 @@
                     "texture": {
                         "key": "Music_On"
                     },
-                    "x": 88,
+                    "x": 234,
                     "y": 75,
                     "scaleX": 0.5,
-                    "scaleY": 0.5
+                    "scaleY": 0.5,
+                    "visible": false
                 },
                 {
                     "type": "Image",
@@ -275,7 +315,22 @@
                     "texture": {
                         "key": "Sound_On"
                     },
-                    "x": 226,
+                    "x": 372,
+                    "y": 75,
+                    "scaleX": 0.5,
+                    "scaleY": 0.5,
+                    "visible": false
+                },
+                {
+                    "type": "Image",
+                    "id": "213422b5-5b45-4dec-979b-57a7eebf06a0",
+                    "label": "btn_settings",
+                    "scope": "CLASS",
+                    "components": [],
+                    "texture": {
+                        "key": "btn_settings"
+                    },
+                    "x": 96,
                     "y": 75,
                     "scaleX": 0.5,
                     "scaleY": 0.5
@@ -338,21 +393,7 @@
                     "texture": {
                         "key": "Home_1"
                     },
-                    "x": -1.4822452632960221,
-                    "y": 330.9586640360045,
-                    "scaleX": 0.5,
-                    "scaleY": 0.5
-                },
-                {
-                    "type": "Image",
-                    "id": "5de6f31f-a2d2-415b-a7a7-3d87c9dedb1e",
-                    "label": "btn_exit",
-                    "scope": "CLASS",
-                    "components": [],
-                    "texture": {
-                        "key": "Exit"
-                    },
-                    "x": 248.51775473670398,
+                    "x": 150,
                     "y": 330.9586640360045,
                     "scaleX": 0.5,
                     "scaleY": 0.5
@@ -366,7 +407,7 @@
                     "texture": {
                         "key": "Restart"
                     },
-                    "x": -251.48224526329602,
+                    "x": -150,
                     "y": 330.9586640360045,
                     "scaleX": 0.5,
                     "scaleY": 0.5

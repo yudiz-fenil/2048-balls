@@ -21,12 +21,30 @@ class Level extends Phaser.Scene {
 
 		// background
 		const background = this.add.image(540, 960, "background");
+		background.visible = false;
 		container_body.add(background);
 
-		// balls_background
-		const balls_background = this.add.image(-14, 270, "balls_background");
-		balls_background.setOrigin(0, 0);
-		container_body.add(balls_background);
+		// balls_bg_rect_2
+		const balls_bg_rect_2 = this.add.rectangle(0, 0, 1080, 1920);
+		balls_bg_rect_2.setOrigin(0, 0);
+		balls_bg_rect_2.isFilled = true;
+		balls_bg_rect_2.fillColor = 7907293;
+		balls_bg_rect_2.fillAlpha = 0.2;
+		balls_bg_rect_2.strokeColor = 0;
+		balls_bg_rect_2.strokeAlpha = 5;
+		balls_bg_rect_2.lineWidth = 5;
+		container_body.add(balls_bg_rect_2);
+
+		// balls_bg_rect
+		const balls_bg_rect = this.add.rectangle(-14, 285, 1108, 1482);
+		balls_bg_rect.setOrigin(0, 0);
+		balls_bg_rect.isFilled = true;
+		balls_bg_rect.fillColor = 0;
+		balls_bg_rect.fillAlpha = 0.25;
+		balls_bg_rect.strokeColor = 0;
+		balls_bg_rect.strokeAlpha = 5;
+		balls_bg_rect.lineWidth = 5;
+		container_body.add(balls_bg_rect);
 
 		// world_rect
 		const world_rect = this.add.rectangle(21, 293, 1036, 1451);
@@ -41,8 +59,20 @@ class Level extends Phaser.Scene {
 		// container_footer
 		const container_footer = this.add.container(509, 1840);
 
+		// balls_bg_rect_1
+		const balls_bg_rect_1 = this.add.rectangle(31, 0, 1108, 1482);
+		balls_bg_rect_1.setOrigin(0.5, 0);
+		balls_bg_rect_1.isFilled = true;
+		balls_bg_rect_1.fillColor = 0;
+		balls_bg_rect_1.fillAlpha = 0.25;
+		balls_bg_rect_1.strokeColor = 0;
+		balls_bg_rect_1.strokeAlpha = 5;
+		balls_bg_rect_1.lineWidth = 5;
+		container_footer.add(balls_bg_rect_1);
+
 		// lock_base
-		const lock_base = this.add.image(31, 49, "lock_base");
+		const lock_base = this.add.image(31, -21, "yellow_border");
+		lock_base.setOrigin(0.5, 0);
 		container_footer.add(lock_base);
 
 		// lock_ball
@@ -96,36 +126,44 @@ class Level extends Phaser.Scene {
 		const container_header = this.add.container(0, 0);
 
 		// score_base
-		const score_base = this.add.image(909, 95, "score_base");
+		const score_base = this.add.image(909, 18, "score_base");
 		container_header.add(score_base);
 
 		// txt_score
-		const txt_score = this.add.text(909, 95, "", {});
+		const txt_score = this.add.text(909, 118, "", {});
 		txt_score.setOrigin(0.5, 0.5);
-		txt_score.text = "508";
-		txt_score.setStyle({ "align": "center", "fontSize": "40px", "stroke": "#A80062", "strokeThickness": 3, "shadow.offsetX": 1, "shadow.offsetY": 1, "shadow.color": "#A80062", "shadow.blur": 2, "shadow.stroke": true, "shadow.fill": true });
+		txt_score.text = "0";
+		txt_score.setStyle({ "align": "center", "fontSize": "40px", "stroke": "#2B5873", "strokeThickness":3,"shadow.offsetX":1,"shadow.offsetY":1,"shadow.color": "#2B5873", "shadow.blur":2,"shadow.stroke":true,"shadow.fill":true});
 		container_header.add(txt_score);
 
 		// text
-		const text = this.add.text(909, 22, "", {});
+		const text = this.add.text(909, 60, "", {});
 		text.setOrigin(0.5, 0.5);
 		text.text = "SCORE";
-		text.setStyle({ "align": "center", "fontSize": "40px", "stroke": "#2B5873", "strokeThickness": 4, "shadow.color": "#2B5873", "shadow.blur": 2, "shadow.stroke": true, "shadow.fill": true });
+		text.setStyle({ "align": "center", "fontSize": "40px", "stroke": "#2B5873", "strokeThickness":4,"shadow.color": "#2B5873", "shadow.blur":2,"shadow.stroke":true,"shadow.fill":true});
 		container_header.add(text);
 
 		// btn_music_on
-		const btn_music_on = this.add.image(88, 75, "Music_On");
+		const btn_music_on = this.add.image(234, 75, "Music_On");
 		btn_music_on.name = "btn_music_on";
 		btn_music_on.scaleX = 0.5;
 		btn_music_on.scaleY = 0.5;
+		btn_music_on.visible = false;
 		container_header.add(btn_music_on);
 
 		// btn_sound_on
-		const btn_sound_on = this.add.image(226, 75, "Sound_On");
+		const btn_sound_on = this.add.image(372, 75, "Sound_On");
 		btn_sound_on.name = "btn_sound_on";
 		btn_sound_on.scaleX = 0.5;
 		btn_sound_on.scaleY = 0.5;
+		btn_sound_on.visible = false;
 		container_header.add(btn_sound_on);
+
+		// btn_settings
+		const btn_settings = this.add.image(96, 75, "btn_settings");
+		btn_settings.scaleX = 0.5;
+		btn_settings.scaleY = 0.5;
+		container_header.add(btn_settings);
 
 		// container_popup
 		const container_popup = this.add.container(541.4822621704935, 961.0413442017435);
@@ -147,19 +185,13 @@ class Level extends Phaser.Scene {
 		container_popup.add(pop_status_label);
 
 		// btn_home
-		const btn_home = this.add.image(-1.4822452632960221, 330.9586640360045, "Home_1");
+		const btn_home = this.add.image(150, 330.9586640360045, "Home_1");
 		btn_home.scaleX = 0.5;
 		btn_home.scaleY = 0.5;
 		container_popup.add(btn_home);
 
-		// btn_exit
-		const btn_exit = this.add.image(248.51775473670398, 330.9586640360045, "Exit");
-		btn_exit.scaleX = 0.5;
-		btn_exit.scaleY = 0.5;
-		container_popup.add(btn_exit);
-
 		// btn_replay
-		const btn_replay = this.add.image(-251.48224526329602, 330.9586640360045, "Restart");
+		const btn_replay = this.add.image(-150, 330.9586640360045, "Restart");
 		btn_replay.scaleX = 0.5;
 		btn_replay.scaleY = 0.5;
 		container_popup.add(btn_replay);
@@ -168,14 +200,14 @@ class Level extends Phaser.Scene {
 		const text_1 = this.add.text(-2.482245263296022, 80.9586640360045, "", {});
 		text_1.setOrigin(0.5, 0.5);
 		text_1.text = "YOUR SCORE";
-		text_1.setStyle({ "align": "center", "fontSize": "52px", "stroke": "#2B5873", "strokeThickness": 4, "shadow.color": "#2B5873", "shadow.blur": 2, "shadow.stroke": true, "shadow.fill": true });
+		text_1.setStyle({ "align": "center", "fontSize": "52px", "stroke": "#2B5873", "strokeThickness":4,"shadow.color": "#2B5873", "shadow.blur":2,"shadow.stroke":true,"shadow.fill":true});
 		container_popup.add(text_1);
 
 		// txt_popup_score
 		const txt_popup_score = this.add.text(-1.4822452632960221, 155.9586640360045, "", {});
 		txt_popup_score.setOrigin(0.5, 0.5);
 		txt_popup_score.text = "0";
-		txt_popup_score.setStyle({ "align": "center", "fontSize": "52px", "stroke": "#2B5873", "strokeThickness": 4, "shadow.color": "#2B5873", "shadow.blur": 2, "shadow.stroke": true, "shadow.fill": true });
+		txt_popup_score.setStyle({ "align": "center", "fontSize": "52px", "stroke": "#2B5873", "strokeThickness":4,"shadow.color": "#2B5873", "shadow.blur":2,"shadow.stroke":true,"shadow.fill":true});
 		container_popup.add(txt_popup_score);
 
 		// container_stars
@@ -217,11 +249,11 @@ class Level extends Phaser.Scene {
 		this.txt_score = txt_score;
 		this.btn_music_on = btn_music_on;
 		this.btn_sound_on = btn_sound_on;
+		this.btn_settings = btn_settings;
 		this.container_popup = container_popup;
 		this.bg_rect = bg_rect;
 		this.pop_status_label = pop_status_label;
 		this.btn_home = btn_home;
-		this.btn_exit = btn_exit;
 		this.btn_replay = btn_replay;
 		this.txt_popup_score = txt_popup_score;
 		this.container_stars = container_stars;
@@ -253,6 +285,8 @@ class Level extends Phaser.Scene {
 	btn_music_on;
 	/** @type {Phaser.GameObjects.Image} */
 	btn_sound_on;
+	/** @type {Phaser.GameObjects.Image} */
+	btn_settings;
 	/** @type {Phaser.GameObjects.Container} */
 	container_popup;
 	/** @type {Phaser.GameObjects.Rectangle} */
@@ -261,8 +295,6 @@ class Level extends Phaser.Scene {
 	pop_status_label;
 	/** @type {Phaser.GameObjects.Image} */
 	btn_home;
-	/** @type {Phaser.GameObjects.Image} */
-	btn_exit;
 	/** @type {Phaser.GameObjects.Image} */
 	btn_replay;
 	/** @type {Phaser.GameObjects.Text} */
@@ -335,8 +367,8 @@ class Level extends Phaser.Scene {
 		this.ballsGroup = this.add.group();
 		this.isGameOver = false;
 		this.btn_replay.setInteractive().on('pointerdown', () => this.scene.restart());
-		this.btn_exit.setInteractive().on('pointerdown', () => this.goToHome());
 		this.btn_home.setInteractive().on('pointerdown', () => this.goToHome());
+		this.btn_settings.setInteractive().on('pointerdown', () => this.goToHome());
 		this.bg_rect.setInteractive().on('pointerdown', () => { });
 		this.physics.add.existing(this.end_line);
 		this.physics.add.collider(this.ballsGroup, this.ballsGroup, this.mergeballs);
@@ -409,7 +441,10 @@ class Level extends Phaser.Scene {
 				this.updateScore(newSize);
 				this.popTextAnimation(newSize, ball1.x, ball1.y);
 				ball2.destroy();
-				if (newSize == 2048) this.winGame();
+				if (newSize == 2048) {
+					this.winGame()
+					return;
+				};
 				this.ballToUnlock(newSize);
 			} else {
 				ball1.body.setFriction(0);
@@ -443,7 +478,7 @@ class Level extends Phaser.Scene {
 		if (!this.isGameOver) this.container_ball_tracker.x = x;
 	}
 	getBall = () => {
-		const balls = [2, 4, 8, 2, 4, 8, 2, 4, 8, 16, 16]
+		const balls = [2, 4, 8, 2, 4, 8, 2, 4, 8, 2, 4, 2, 16, 16]
 		// const balls = [16]
 		const n = Math.floor(Math.random() * balls.length);
 		if (this.aLockedBalls.includes(balls[n])) {
@@ -479,7 +514,7 @@ class Level extends Phaser.Scene {
 		// this.showConfetti();
 	}
 	popupAnimation = (nStar) => {
-		this.physics.pause();
+		// this.physics.pause();
 		this.txt_popup_score.setText(this.nScore);
 		this.container_popup.setScale(0, 0);
 		this.container_popup.setVisible(true);
