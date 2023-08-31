@@ -40,19 +40,6 @@
         },
         {
             "type": "Image",
-            "id": "1cf02b96-dc4d-4613-a842-b9da7b2c0757",
-            "label": "logo",
-            "components": [],
-            "texture": {
-                "key": "logo"
-            },
-            "x": 540,
-            "y": 540,
-            "scaleX": 0.8,
-            "scaleY": 0.8
-        },
-        {
-            "type": "Image",
             "id": "d82afff9-7989-4015-bec9-c754720853de",
             "label": "energyContainer",
             "scope": "CLASS",
@@ -126,6 +113,19 @@
             "lineWidth": 5,
             "width": 1080,
             "height": 1920
+        },
+        {
+            "prefabId": "07dea3d8-2b22-4930-a0e0-ec161bf64280",
+            "id": "1d101617-23ef-490c-8e28-dbbcad61ed15",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "logoPrefab",
+            "components": [],
+            "x": 540,
+            "y": 540,
+            "nestedPrefabs": []
         }
     ],
     "plainObjects": [],

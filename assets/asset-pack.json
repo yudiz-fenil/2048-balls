@@ -2,6 +2,26 @@
     "section1": {
         "files": [
             {
+                "url": "assets/images/shootingline/a16.png",
+                "type": "image",
+                "key": "a16"
+            },
+            {
+                "url": "assets/images/shootingline/a2.png",
+                "type": "image",
+                "key": "a2"
+            },
+            {
+                "url": "assets/images/shootingline/a4.png",
+                "type": "image",
+                "key": "a4"
+            },
+            {
+                "url": "assets/images/shootingline/a8.png",
+                "type": "image",
+                "key": "a8"
+            },
+            {
                 "url": "assets/images/balls/b1024.png",
                 "type": "image",
                 "key": "b1024"
@@ -57,11 +77,6 @@
                 "key": "b8"
             },
             {
-                "url": "assets/images/balls_background.png",
-                "type": "image",
-                "key": "balls_background"
-            },
-            {
                 "url": "assets/images/buttons/btn_info.png",
                 "type": "image",
                 "key": "btn_info"
@@ -72,24 +87,29 @@
                 "key": "btn_settings"
             },
             {
-                "url": "assets/images/bubble.png",
-                "type": "image",
-                "key": "bubble"
-            },
-            {
                 "url": "assets/images/bubble_lock.png",
                 "type": "image",
                 "key": "bubble_lock"
             },
             {
-                "url": "assets/images/popups/emptystar.png",
-                "type": "image",
-                "key": "emptystar"
-            },
-            {
                 "url": "assets/images/buttons/Exit.png",
                 "type": "image",
                 "key": "Exit"
+            },
+            {
+                "url": "assets/images/fishes/fish1.png",
+                "type": "image",
+                "key": "fish1"
+            },
+            {
+                "url": "assets/images/fishes/fish2.png",
+                "type": "image",
+                "key": "fish2"
+            },
+            {
+                "url": "assets/images/fishes/fish3.png",
+                "type": "image",
+                "key": "fish3"
             },
             {
                 "url": "src/scripts/GameManager.js",
@@ -107,29 +127,69 @@
                 "key": "Home_1"
             },
             {
-                "url": "assets/images/shootingline/l16.png",
+                "url": "assets/images/jelly-fish/j1.png",
                 "type": "image",
-                "key": "l16"
+                "key": "j1"
             },
             {
-                "url": "assets/images/shootingline/l2.png",
+                "url": "assets/images/jelly-fish/j10.png",
                 "type": "image",
-                "key": "l2"
+                "key": "j10"
             },
             {
-                "url": "assets/images/shootingline/l4.png",
+                "url": "assets/images/jelly-fish/j2.png",
                 "type": "image",
-                "key": "l4"
+                "key": "j2"
             },
             {
-                "url": "assets/images/shootingline/l8.png",
+                "url": "assets/images/jelly-fish/j3.png",
                 "type": "image",
-                "key": "l8"
+                "key": "j3"
             },
             {
-                "url": "assets/images/lock_base.png",
+                "url": "assets/images/jelly-fish/j4.png",
                 "type": "image",
-                "key": "lock_base"
+                "key": "j4"
+            },
+            {
+                "url": "assets/images/jelly-fish/j5.png",
+                "type": "image",
+                "key": "j5"
+            },
+            {
+                "url": "assets/images/jelly-fish/j6.png",
+                "type": "image",
+                "key": "j6"
+            },
+            {
+                "url": "assets/images/jelly-fish/j7.png",
+                "type": "image",
+                "key": "j7"
+            },
+            {
+                "url": "assets/images/jelly-fish/j8.png",
+                "type": "image",
+                "key": "j8"
+            },
+            {
+                "url": "assets/images/jelly-fish/j9.png",
+                "type": "image",
+                "key": "j9"
+            },
+            {
+                "url": "assets/animations/jellyfish.json",
+                "type": "animation",
+                "key": "jellyfish"
+            },
+            {
+                "url": "src/prefabs/JellyPrefab.js",
+                "type": "script",
+                "key": "JellyPrefab"
+            },
+            {
+                "url": "assets/images/shootingline/line.png",
+                "type": "image",
+                "key": "line"
             },
             {
                 "url": "assets/images/popups/lost.png",
@@ -152,11 +212,6 @@
                 "key": "Play_Button"
             },
             {
-                "url": "assets/images/replay.png",
-                "type": "image",
-                "key": "replay"
-            },
-            {
                 "url": "assets/images/buttons/Restart.png",
                 "type": "image",
                 "key": "Restart"
@@ -165,6 +220,11 @@
                 "url": "assets/images/score_base.png",
                 "type": "image",
                 "key": "score_base"
+            },
+            {
+                "url": "assets/images/settings_base.png",
+                "type": "image",
+                "key": "settings_base"
             },
             {
                 "url": "assets/images/shoot_ball_bubble.png",

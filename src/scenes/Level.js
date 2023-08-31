@@ -21,12 +21,12 @@ class Level extends Phaser.Scene {
 
 		// background
 		const background = this.add.image(540, 960, "background");
-		background.visible = false;
 		container_body.add(background);
 
 		// balls_bg_rect_2
 		const balls_bg_rect_2 = this.add.rectangle(0, 0, 1080, 1920);
 		balls_bg_rect_2.setOrigin(0, 0);
+		balls_bg_rect_2.visible = false;
 		balls_bg_rect_2.isFilled = true;
 		balls_bg_rect_2.fillColor = 7907293;
 		balls_bg_rect_2.fillAlpha = 0.2;
@@ -101,8 +101,12 @@ class Level extends Phaser.Scene {
 		shoot_ball_bubble.scaleY = 0.8;
 		container_ball_tracker.add(shoot_ball_bubble);
 
+		// shooting_light
+		const shooting_light = this.add.image(0, 503, "a2");
+		container_ball_tracker.add(shooting_light);
+
 		// shooting_line
-		const shooting_line = this.add.image(0, 523, "l2");
+		const shooting_line = this.add.image(0, 503, "line");
 		container_ball_tracker.add(shooting_line);
 
 		// container_balls
@@ -122,45 +126,84 @@ class Level extends Phaser.Scene {
 		yellow_border.setOrigin(0, 0);
 		container_endline.add(yellow_border);
 
+		// txt_poptext
+		const txt_poptext = this.add.text(540, 715, "", {});
+		txt_poptext.scaleX = 0;
+		txt_poptext.scaleY = 0;
+		txt_poptext.setOrigin(0.5, 0.5);
+		txt_poptext.alpha = 0.5;
+		txt_poptext.alphaTopLeft = 0.5;
+		txt_poptext.alphaTopRight = 0.5;
+		txt_poptext.alphaBottomLeft = 0.5;
+		txt_poptext.alphaBottomRight = 0.5;
+		txt_poptext.text = "+4";
+		txt_poptext.setStyle({ "align": "center", "fontSize": "350px", "stroke": "#2B5873", "strokeThickness": 3, "shadow.offsetX": 1, "shadow.offsetY": 1, "shadow.color": "#2B5873", "shadow.blur": 2, "shadow.stroke": true, "shadow.fill": true });
+		container_endline.add(txt_poptext);
+
 		// container_header
 		const container_header = this.add.container(0, 0);
 
+		// container_scoreboard
+		const container_scoreboard = this.add.container(0, -150);
+		container_header.add(container_scoreboard);
+
 		// score_base
 		const score_base = this.add.image(909, 18, "score_base");
-		container_header.add(score_base);
+		container_scoreboard.add(score_base);
 
 		// txt_score
 		const txt_score = this.add.text(909, 118, "", {});
 		txt_score.setOrigin(0.5, 0.5);
 		txt_score.text = "0";
-		txt_score.setStyle({ "align": "center", "fontSize": "40px", "stroke": "#2B5873", "strokeThickness":3,"shadow.offsetX":1,"shadow.offsetY":1,"shadow.color": "#2B5873", "shadow.blur":2,"shadow.stroke":true,"shadow.fill":true});
-		container_header.add(txt_score);
+		txt_score.setStyle({ "align": "center", "fontSize": "40px", "stroke": "#2B5873", "strokeThickness": 3, "shadow.offsetX": 1, "shadow.offsetY": 1, "shadow.color": "#2B5873", "shadow.blur": 2, "shadow.stroke": true, "shadow.fill": true });
+		container_scoreboard.add(txt_score);
 
 		// text
 		const text = this.add.text(909, 60, "", {});
 		text.setOrigin(0.5, 0.5);
 		text.text = "SCORE";
-		text.setStyle({ "align": "center", "fontSize": "40px", "stroke": "#2B5873", "strokeThickness":4,"shadow.color": "#2B5873", "shadow.blur":2,"shadow.stroke":true,"shadow.fill":true});
-		container_header.add(text);
+		text.setStyle({ "align": "center", "fontSize": "40px", "stroke": "#2B5873", "strokeThickness": 4, "shadow.color": "#2B5873", "shadow.blur": 2, "shadow.stroke": true, "shadow.fill": true });
+		container_scoreboard.add(text);
+
+		// settings_base
+		const settings_base = this.add.image(25, 74, "settings_base");
+		settings_base.scaleX = 0.3;
+		settings_base.setOrigin(0, 0.5);
+		settings_base.visible = false;
+		settings_base.alpha = 0.25;
+		settings_base.alphaTopLeft = 0.25;
+		settings_base.alphaTopRight = 0.25;
+		settings_base.alphaBottomLeft = 0.25;
+		settings_base.alphaBottomRight = 0.25;
+		container_header.add(settings_base);
+
+		// container_settings
+		const container_settings = this.add.container(0, 0);
+		container_settings.visible = false;
+		container_header.add(container_settings);
 
 		// btn_music_on
-		const btn_music_on = this.add.image(234, 75, "Music_On");
+		const btn_music_on = this.add.image(100, 77, "Music_On");
 		btn_music_on.name = "btn_music_on";
 		btn_music_on.scaleX = 0.5;
 		btn_music_on.scaleY = 0.5;
-		btn_music_on.visible = false;
-		container_header.add(btn_music_on);
+		container_settings.add(btn_music_on);
 
 		// btn_sound_on
-		const btn_sound_on = this.add.image(372, 75, "Sound_On");
+		const btn_sound_on = this.add.image(100, 74, "Sound_On");
 		btn_sound_on.name = "btn_sound_on";
 		btn_sound_on.scaleX = 0.5;
 		btn_sound_on.scaleY = 0.5;
-		btn_sound_on.visible = false;
-		container_header.add(btn_sound_on);
+		container_settings.add(btn_sound_on);
+
+		// btn_info
+		const btn_info = this.add.image(100, 73, "btn_info");
+		btn_info.scaleX = 0.5;
+		btn_info.scaleY = 0.5;
+		container_settings.add(btn_info);
 
 		// btn_settings
-		const btn_settings = this.add.image(96, 75, "btn_settings");
+		const btn_settings = this.add.image(100, 75, "btn_settings");
 		btn_settings.scaleX = 0.5;
 		btn_settings.scaleY = 0.5;
 		container_header.add(btn_settings);
@@ -200,14 +243,14 @@ class Level extends Phaser.Scene {
 		const text_1 = this.add.text(-2.482245263296022, 80.9586640360045, "", {});
 		text_1.setOrigin(0.5, 0.5);
 		text_1.text = "YOUR SCORE";
-		text_1.setStyle({ "align": "center", "fontSize": "52px", "stroke": "#2B5873", "strokeThickness":4,"shadow.color": "#2B5873", "shadow.blur":2,"shadow.stroke":true,"shadow.fill":true});
+		text_1.setStyle({ "align": "center", "fontSize": "52px", "stroke": "#2B5873", "strokeThickness": 4, "shadow.color": "#2B5873", "shadow.blur": 2, "shadow.stroke": true, "shadow.fill": true });
 		container_popup.add(text_1);
 
 		// txt_popup_score
 		const txt_popup_score = this.add.text(-1.4822452632960221, 155.9586640360045, "", {});
 		txt_popup_score.setOrigin(0.5, 0.5);
 		txt_popup_score.text = "0";
-		txt_popup_score.setStyle({ "align": "center", "fontSize": "52px", "stroke": "#2B5873", "strokeThickness":4,"shadow.color": "#2B5873", "shadow.blur":2,"shadow.stroke":true,"shadow.fill":true});
+		txt_popup_score.setStyle({ "align": "center", "fontSize": "52px", "stroke": "#2B5873", "strokeThickness": 4, "shadow.color": "#2B5873", "shadow.blur": 2, "shadow.stroke": true, "shadow.fill": true });
 		container_popup.add(txt_popup_score);
 
 		// container_stars
@@ -243,12 +286,18 @@ class Level extends Phaser.Scene {
 		this.container_ball_tracker = container_ball_tracker;
 		this.ball_tracker_img = ball_tracker_img;
 		this.shoot_ball_bubble = shoot_ball_bubble;
+		this.shooting_light = shooting_light;
 		this.shooting_line = shooting_line;
 		this.container_balls = container_balls;
 		this.end_line = end_line;
+		this.txt_poptext = txt_poptext;
+		this.container_scoreboard = container_scoreboard;
 		this.txt_score = txt_score;
+		this.settings_base = settings_base;
+		this.container_settings = container_settings;
 		this.btn_music_on = btn_music_on;
 		this.btn_sound_on = btn_sound_on;
+		this.btn_info = btn_info;
 		this.btn_settings = btn_settings;
 		this.container_popup = container_popup;
 		this.bg_rect = bg_rect;
@@ -274,17 +323,29 @@ class Level extends Phaser.Scene {
 	/** @type {Phaser.GameObjects.Image} */
 	shoot_ball_bubble;
 	/** @type {Phaser.GameObjects.Image} */
+	shooting_light;
+	/** @type {Phaser.GameObjects.Image} */
 	shooting_line;
 	/** @type {Phaser.GameObjects.Container} */
 	container_balls;
 	/** @type {Phaser.GameObjects.Rectangle} */
 	end_line;
 	/** @type {Phaser.GameObjects.Text} */
+	txt_poptext;
+	/** @type {Phaser.GameObjects.Container} */
+	container_scoreboard;
+	/** @type {Phaser.GameObjects.Text} */
 	txt_score;
+	/** @type {Phaser.GameObjects.Image} */
+	settings_base;
+	/** @type {Phaser.GameObjects.Container} */
+	container_settings;
 	/** @type {Phaser.GameObjects.Image} */
 	btn_music_on;
 	/** @type {Phaser.GameObjects.Image} */
 	btn_sound_on;
+	/** @type {Phaser.GameObjects.Image} */
+	btn_info;
 	/** @type {Phaser.GameObjects.Image} */
 	btn_settings;
 	/** @type {Phaser.GameObjects.Container} */
@@ -305,8 +366,7 @@ class Level extends Phaser.Scene {
 	/* START-USER-CODE */
 
 	// Write more your code here
-
-	btnAnimation = (texture) => {
+	btnAnimation = (texture, callback) => {
 		this.tweens.add({
 			targets: texture,
 			scaleX: "*=0.8",
@@ -334,6 +394,9 @@ class Level extends Phaser.Scene {
 			this.btn_sound_on.setTexture("Sound_On")
 		}
 	}
+	infoHandler = () => {
+		this.btnAnimation(this.btn_info);
+	}
 	updateScore = (nValue) => {
 		this.nScore += nValue;
 		this.txt_score.setText(this.nScore);
@@ -343,32 +406,142 @@ class Level extends Phaser.Scene {
 		this.scene.start("Home")
 	}
 	popTextAnimation = (n, x, y) => {
-		const popup_text = this.add.text(x, y, "+" + n, {});
-		popup_text.setOrigin(0.5, 0.5);
-		popup_text.setDepth(11);
-		popup_text.setStyle({ "align": "center", "color": "#FFFFFF", "fontSize": "64px" });
+		this.txt_poptext.setText("+" + n);
 		this.tweens.add({
-			targets: popup_text,
-			x: x,
-			y: y - 300,
-			duration: 700,
+			targets: this.txt_poptext,
+			scaleX: 1,
+			scaleY: 1,
+			duration: 400,
 			onComplete: () => {
-				popup_text.destroy();
+				this.txt_poptext.setScale(0, 0);
+			}
+		})
+		// const popup_text = this.add.text(x, y, "+" + n, {});
+		// popup_text.setOrigin(0.5, 0.5);
+		// popup_text.setDepth(11);
+		// popup_text.setStyle({ "align": "center", "color": "#FFFFFF", "fontSize": "64px" });
+		// this.tweens.add({
+		// 	targets: popup_text,
+		// 	x: x,
+		// 	y: y - 300,
+		// 	duration: 700,
+		// 	onComplete: () => {
+		// 		popup_text.destroy();
+		// 	}
+		// })
+	}
+	settingsCloseAnimation = () => {
+		this.tweens.add({
+			targets: this.settings_base,
+			scaleX: 0.3,
+			duration: 200,
+			onComplete: () => {
+				this.settings_base.setVisible(false);
+			}
+		})
+		for (let i = 0; i < this.container_settings.length; i++) {
+			this.tweens.add({
+				targets: this.container_settings.list[i],
+				x: this.btn_settings.x,
+				duration: 200,
+				delay: 0 * (i + 200),
+				angle: -360,
+				onComplete: () => {
+					this.container_settings.setVisible(false);
+				}
+			})
+		};
+	}
+	settingsOpenAnimation = () => {
+		this.container_settings.setVisible(true);
+		this.settings_base.setVisible(true);
+		this.tweens.add({
+			targets: this.settings_base,
+			scaleX: 1,
+			duration: 200,
+			onComplete: () => {
+			}
+		})
+		for (let i = 0; i < this.container_settings.length; i++) {
+			this.tweens.add({
+				targets: this.container_settings.list[i],
+				x: this.btn_settings.x + (125 * (i + 1)),
+				duration: 200,
+				delay: 0 * (i + 200),
+				angle: 360,
+				onComplete: () => {
+				}
+			})
+		};
+	}
+	settingsHandler = () => {
+		if (this.container_settings.visible) {
+			// To Close
+			this.settingsCloseAnimation();
+		} else {
+			// To Open
+			this.settingsOpenAnimation();
+		}
+	}
+	lightAnimation = () => {
+		this.tweens.add({
+			targets: this.shooting_light,
+			alpha: 0.5,
+			duration: 1000,
+			yoyo: true,
+			repeat: -1,
+			ease: 'Sine.easeInOut'
+		});
+	}
+	scoreBoardAnimation = () => {
+		this.tweens.add({
+			y: 0,
+			targets: this.container_scoreboard,
+			duration: 800,
+			delay: 200,
+			ease: 'Bounce'
+		});
+	}
+	jellyFishAnimation = (x, y, targetsX, targetsY, flipX, duration, time) => {
+		const jelly = this.add.sprite(x, y, "j1");
+		jelly.setFlipX(flipX);
+		setTimeout(() => {
+			jelly.anims.play("jellyfish");
+		}, time);
+		const tween = this.tweens.add({
+			targets: jelly,
+			x: targetsX,
+			y: targetsY,
+			duration: duration,
+			repeat: -1,
+			onComplete: () => {
 			}
 		})
 	}
 	create() {
 		this.oGameManager = new GameManager(this);
+		this.jellyFishAnimation(108, 1825, 1900, 500, false, 10000, 0);
+		this.jellyFishAnimation(1145, 1266, 0, 500, true, 10000, 0);
+
+		this.jellyFishAnimation(-121, 1260, 1104, -273, false, 10000, 500);
+		this.jellyFishAnimation(-70, 1357, 1155, -176, false, 10000, 600);
+		this.jellyFishAnimation(-121, 1499, 1104, -34, false, 10000, 750);
+		this.jellyFishAnimation(-201, 1434, 1024, -99, false, 10000, 100);
+		this.jellyFishAnimation(-240, 1316, 985, -217, false, 10000, 1000);
+
 		this.editorCreate();
 		this.oBalls = this.oGameManager.oBalls;
 		this.nScore = 0;
 		this.updateScore(0);
+		this.lightAnimation();
+		this.scoreBoardAnimation();
 		this.nCurrentBall = 2;
 		this.ballsGroup = this.add.group();
 		this.isGameOver = false;
 		this.btn_replay.setInteractive().on('pointerdown', () => this.scene.restart());
 		this.btn_home.setInteractive().on('pointerdown', () => this.goToHome());
-		this.btn_settings.setInteractive().on('pointerdown', () => this.goToHome());
+		this.btn_settings.setInteractive().on('pointerdown', () => this.settingsHandler());
+		this.btn_info.setInteractive().on('pointerdown', () => this.infoHandler());
 		this.bg_rect.setInteractive().on('pointerdown', () => { });
 		this.physics.add.existing(this.end_line);
 		this.physics.add.collider(this.ballsGroup, this.ballsGroup, this.mergeballs);
@@ -400,14 +573,14 @@ class Level extends Phaser.Scene {
 	showBubbles = (x, y) => {
 		const bubbleParticles = this.bubbles.createEmitter({
 			x: x,
-			y: y,
-			speed: { min: -500, max: 500 },
+			y: y + 40,
+			speed: { min: -800, max: 800 },
 			angle: { min: 0, max: 360 },
-			scale: { start: 0.4, end: 0.2 },
+			scale: { start: 0.35, end: 0.1 },
 			blendMode: "ADD",
 			lifespan: 500,
 			gravityY: -3000,
-			frequency: 200,
+			frequency: 150,
 		});
 		setTimeout(() => {
 			bubbleParticles.remove();
@@ -440,7 +613,7 @@ class Level extends Phaser.Scene {
 				this.showBubbles(ball1.x, ball1.y);
 				this.updateScore(newSize);
 				this.popTextAnimation(newSize, ball1.x, ball1.y);
-				ball2.destroy();
+				// ball2.destroy();
 				if (newSize == 2048) {
 					this.winGame()
 					return;
@@ -478,7 +651,7 @@ class Level extends Phaser.Scene {
 		if (!this.isGameOver) this.container_ball_tracker.x = x;
 	}
 	getBall = () => {
-		const balls = [2, 4, 8, 2, 4, 8, 2, 4, 8, 2, 4, 2, 16, 16]
+		const balls = [2, 4, 8, 2, 4, 8, 2, 4, 8, 16, 16]
 		// const balls = [16]
 		const n = Math.floor(Math.random() * balls.length);
 		if (this.aLockedBalls.includes(balls[n])) {
@@ -490,7 +663,7 @@ class Level extends Phaser.Scene {
 	setBall = (nBall) => {
 		this.ball_tracker_img.setTexture(this.oBalls[nBall].sTexture);
 		this.nCurrentBall = nBall;
-		this.shooting_line.setTexture(this.oBalls[nBall].sLine);
+		this.shooting_light.setTexture(this.oBalls[nBall].sLine);
 		this.ball_tracker_img.setDisplaySize(this.shoot_ball_bubble.displayWidth - 8, this.shoot_ball_bubble.displayHeight - 8);
 	}
 	handleTracker = () => {
@@ -533,23 +706,6 @@ class Level extends Phaser.Scene {
 			}
 		})
 	}
-	showStarParticle = (star) => {
-		// this.particleStar
-		const starParticles = this.bubbles.createEmitter({
-			x: star.x,
-			y: star.y,
-			speed: { min: -1000, max: 1000 },
-			angle: { min: 0, max: 360 },
-			scale: { start: star.scale, end: 0 },
-			// blendMode: "ADD",
-			lifespan: 500,
-			// gravityY: -500,
-			frequency: 100,
-		});
-		setTimeout(() => {
-			starParticles.remove();
-		}, 600);
-	}
 	starAnimation = (nStar) => {
 		const scale1 = 0.65
 		const scale2 = 0.83
@@ -562,12 +718,11 @@ class Level extends Phaser.Scene {
 				targets: star,
 				scaleX: i == 2 ? scale2 : scale1,
 				scaleY: i == 2 ? scale2 : scale1,
-				// ease: "Bounce",
+				// ease: "Sine.easeInOut",
 				duration: 400,
 				delay: nDelay,
 				onComplete: () => {
 					if (i < nStar) this.container_stars.list[i].setVisible(true);
-					// this.showStarParticle(star);
 				}
 			})
 			nDelay += 400;

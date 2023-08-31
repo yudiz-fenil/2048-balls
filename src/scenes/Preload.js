@@ -32,11 +32,6 @@ class Preload extends Phaser.Scene {
 		progress.text = "0%";
 		progress.setStyle({ "fontSize": "100px" });
 
-		// logo
-		const logo = this.add.image(540, 540, "logo");
-		logo.scaleX = 0.8;
-		logo.scaleY = 0.8;
-
 		// energyContainer
 		const energyContainer = this.add.image(540, 1660, "progress_bar_base");
 		energyContainer.visible = false;
@@ -49,7 +44,7 @@ class Preload extends Phaser.Scene {
 		const text = this.add.text(540, 1572, "", {});
 		text.setOrigin(0.5, 0.5);
 		text.text = "LOADING...";
-		text.setStyle({ "align": "center", "fontSize": "44px", "stroke": "#2B5873", "strokeThickness":5,"shadow.color": "#2B5873", "shadow.blur":2,"shadow.stroke":true,"shadow.fill":true});
+		text.setStyle({ "align": "center", "fontSize": "44px", "stroke": "#2B5873", "strokeThickness": 5, "shadow.color": "#2B5873", "shadow.blur": 2, "shadow.stroke": true, "shadow.fill": true });
 
 		// mask_rect
 		const mask_rect = this.add.rectangle(539.5, 1659, 707, 48);
@@ -67,6 +62,10 @@ class Preload extends Phaser.Scene {
 		balls_bg_rect_2.strokeColor = 0;
 		balls_bg_rect_2.strokeAlpha = 5;
 		balls_bg_rect_2.lineWidth = 5;
+
+		// logoPrefab
+		const logoPrefab = new LogoPrefab(this, 540, 540);
+		this.add.existing(logoPrefab);
 
 		// progress (components)
 		new PreloadText(progress);

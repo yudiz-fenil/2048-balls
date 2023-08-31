@@ -33,18 +33,180 @@
 			margin: 0;
 			padding: 0;
 			font-family: Courier;
+			overflow: hidden;
 		}
 
 		canvas {
-
 			cursor: pointer;
+			position: relative;
+			z-index: 1;
+		}
+
+		#fish1 {
+			position: absolute;
+			bottom: 15%;
+			opacity: 0.5;
+			position: absolute;
+			-webkit-animation: linear infinite;
+			-webkit-animation-name: run;
+			-webkit-animation-duration: 45s;
+		}
+
+		#fish2 {
+			position: absolute;
+			top: 5%;
+			right: 40%;
+			position: absolute;
+			-webkit-animation: linear infinite;
+			-webkit-animation-name: run2;
+			-webkit-animation-duration: 40s;
+		}
+
+		#fish3 {
+			position: absolute;
+			top: 35%;
+			left: 40%;
+			position: absolute;
+			-webkit-animation: linear infinite;
+			-webkit-animation-name: run3;
+			-webkit-animation-duration: 30s;
+		}
+
+		#fish4 {
+			position: absolute;
+			top: 5%;
+			right: 40%;
+			position: absolute;
+			-webkit-animation: linear infinite;
+			-webkit-animation-name: run2;
+			-webkit-animation-duration: 30s;
+		}
+
+		#submarine {
+			position: absolute;
+			top: 40%;
+			right: 0%;
+			position: absolute;
+			transform: translateY(-40%);
+			-webkit-animation: linear infinite;
+			-webkit-animation-name: submarine1;
+			-webkit-animation-duration: 50s;
+		}
+
+		@-webkit-keyframes run {
+			0% {
+				left: 0%;
+			}
+
+			50% {
+				left: 95%;
+				transform: rotateY(0deg);
+			}
+
+			51% {
+				transform: rotateY(180deg);
+			}
+
+			100% {
+				left: 0%;
+				transform: rotateY(180deg);
+			}
+		}
+
+		@-webkit-keyframes run2 {
+			0% {
+				right: 40%;
+				transform: rotateY(180deg);
+			}
+
+			30% {
+				right: 105%;
+				transform: rotateY(180deg);
+			}
+
+			31% {
+				right: 105%;
+				transform: rotateY(0deg);
+			}
+
+			70% {
+				right: -15%;
+				transform: rotateY(0deg);
+			}
+
+			71% {
+				right: -15%;
+				transform: rotateY(180deg);
+			}
+
+			100% {
+				right: 40%;
+				transform: rotateY(180deg);
+			}
+		}
+
+		@-webkit-keyframes run3 {
+			0% {
+				left: 40%;
+				transform: rotateY(0deg);
+			}
+
+			30% {
+				left: 105%;
+				transform: rotateY(0deg);
+			}
+
+			31% {
+				left: 105%;
+				transform: rotateY(180deg);
+			}
+
+			75% {
+				left: -15%;
+				transform: rotateY(180deg);
+			}
+
+			76% {
+				left: -15%;
+				transform: rotateY(0deg);
+			}
+
+			100% {
+				left: 40%;
+				transform: rotateY(0deg);
+			}
+		}
+
+		@-webkit-keyframes submarine1 {
+			0% {
+				right: -30%;
+			}
+
+			50% {
+				right: 100%;
+				transform: rotateY(0deg);
+			}
+
+			51% {
+				transform: rotateY(180deg);
+			}
+
+			100% {
+				right: -30%;
+				transform: rotateY(180deg);
+			}
 		}
 	</style>
 
 </head>
 
 <body>
-	<script>var nWinningBall = null;</script>
+	<img src="assets/images/fishes/fish1.png" alt="fish1" id="fish1" />
+	<img src="assets/images/fishes/tiny_fish.png" alt="fish2" id="fish2" />
+	<img src="assets/images/fishes/fist_group.png" alt="fish3" id="fish3" />
+	<img src="assets/images/fishes/little_fish_group.png" alt="fish3" id="fish4" />
+	<!-- <img src="assets/images/bubble.png" alt="bubble" id="bubble" /> -->
+	<img src="assets/images/fishes/submarine.png" alt="submarine" id="submarine" />
 </body>
 
 </html>

@@ -18,8 +18,7 @@
                 "key": "background"
             },
             "x": 540,
-            "y": 960,
-            "visible": false
+            "y": 960
         },
         {
             "type": "Rectangle",
@@ -28,6 +27,7 @@
             "components": [],
             "originX": 0,
             "originY": 0,
+            "visible": false,
             "isFilled": true,
             "fillColor": "#78A7DD",
             "fillAlpha": 0.2,
@@ -36,19 +36,6 @@
             "lineWidth": 5,
             "width": 1080,
             "height": 1920
-        },
-        {
-            "type": "Image",
-            "id": "230f1a61-f803-468c-ab5f-8b4a9156ac83",
-            "label": "logo",
-            "components": [],
-            "texture": {
-                "key": "logo"
-            },
-            "x": 540,
-            "y": 540,
-            "scaleX": 0.8,
-            "scaleY": 0.8
         },
         {
             "type": "Image",
@@ -84,6 +71,33 @@
             "components": [],
             "texture": {
                 "key": "Sound_On"
+            },
+            "x": 540,
+            "y": 1630,
+            "scaleX": 0.8,
+            "scaleY": 0.8
+        },
+        {
+            "prefabId": "07dea3d8-2b22-4930-a0e0-ec161bf64280",
+            "id": "def517e6-6b81-48d1-8618-b685edfec986",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "logoPrefab",
+            "components": [],
+            "x": 540,
+            "y": 540,
+            "nestedPrefabs": []
+        },
+        {
+            "type": "Image",
+            "id": "aeebca8d-18f1-4aa0-b34d-26e12032260a",
+            "label": "btn_info",
+            "scope": "CLASS",
+            "components": [],
+            "texture": {
+                "key": "btn_info"
             },
             "x": 790,
             "y": 1630,

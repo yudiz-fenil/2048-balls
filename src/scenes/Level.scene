@@ -24,8 +24,7 @@
                         "key": "background"
                     },
                     "x": 540,
-                    "y": 960,
-                    "visible": false
+                    "y": 960
                 },
                 {
                     "type": "Rectangle",
@@ -34,6 +33,7 @@
                     "components": [],
                     "originX": 0,
                     "originY": 0,
+                    "visible": false,
                     "isFilled": true,
                     "fillColor": "#78A7DD",
                     "fillAlpha": 0.2,
@@ -178,14 +178,25 @@
                 },
                 {
                     "type": "Image",
+                    "id": "4046cac6-bb21-47bd-ad6c-6ffbab071be4",
+                    "label": "shooting_light",
+                    "scope": "CLASS",
+                    "components": [],
+                    "texture": {
+                        "key": "a2"
+                    },
+                    "y": 503
+                },
+                {
+                    "type": "Image",
                     "id": "a61548a2-7db6-4e59-a9e9-bb498a60bea9",
                     "label": "shooting_line",
                     "scope": "CLASS",
                     "components": [],
                     "texture": {
-                        "key": "l2"
+                        "key": "line"
                     },
-                    "y": 523
+                    "y": 503
                 }
             ]
         },
@@ -228,6 +239,35 @@
                     "y": 270,
                     "originX": 0,
                     "originY": 0
+                },
+                {
+                    "type": "Text",
+                    "id": "9e506884-74c8-4539-8684-e9ac49f5e9b3",
+                    "label": "txt_poptext",
+                    "scope": "CLASS",
+                    "components": [],
+                    "x": 540,
+                    "y": 715,
+                    "scaleX": 0,
+                    "scaleY": 0,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "alpha": 0.5,
+                    "alphaTopLeft": 0.5,
+                    "alphaTopRight": 0.5,
+                    "alphaBottomLeft": 0.5,
+                    "alphaBottomRight": 0.5,
+                    "text": "+4",
+                    "align": "center",
+                    "fontSize": "350px",
+                    "stroke": "#2B5873",
+                    "strokeThickness": 3,
+                    "shadow.offsetX": 1,
+                    "shadow.offsetY": 1,
+                    "shadow.stroke": true,
+                    "shadow.fill": true,
+                    "shadow.color": "#2B5873",
+                    "shadow.blur": 2
                 }
             ]
         },
@@ -238,88 +278,140 @@
             "components": [],
             "list": [
                 {
-                    "type": "Image",
-                    "id": "887ca36e-8883-4039-a4fd-1d989012d499",
-                    "label": "score_base",
-                    "components": [],
-                    "texture": {
-                        "key": "score_base"
-                    },
-                    "x": 909,
-                    "y": 18
-                },
-                {
-                    "type": "Text",
-                    "id": "8bc21d1b-2f5c-4e3d-9f54-d811725e7033",
-                    "label": "txt_score",
+                    "type": "Container",
+                    "id": "4b1e9b9b-174d-4d9e-93bc-2cac78df882e",
+                    "label": "container_scoreboard",
                     "scope": "CLASS",
                     "components": [],
-                    "x": 909,
-                    "y": 118,
-                    "originX": 0.5,
-                    "originY": 0.5,
-                    "text": "0",
-                    "align": "center",
-                    "fontSize": "40px",
-                    "stroke": "#2B5873",
-                    "strokeThickness": 3,
-                    "shadow.offsetX": 1,
-                    "shadow.offsetY": 1,
-                    "shadow.stroke": true,
-                    "shadow.fill": true,
-                    "shadow.color": "#2B5873",
-                    "shadow.blur": 2
-                },
-                {
-                    "type": "Text",
-                    "id": "bea2498e-67e2-4016-a34e-1137bfcab0ec",
-                    "label": "text",
-                    "components": [],
-                    "x": 909,
-                    "y": 60,
-                    "originX": 0.5,
-                    "originY": 0.5,
-                    "text": "SCORE",
-                    "align": "center",
-                    "fontSize": "40px",
-                    "stroke": "#2B5873",
-                    "strokeThickness": 4,
-                    "shadow.stroke": true,
-                    "shadow.fill": true,
-                    "shadow.color": "#2B5873",
-                    "shadow.blur": 2
-                },
-                {
-                    "type": "Image",
-                    "id": "1f9752c7-7592-4f50-9db9-5f3b04197ed3",
-                    "label": "btn_music_on",
-                    "useGameObjectName": true,
-                    "scope": "CLASS",
-                    "components": [],
-                    "texture": {
-                        "key": "Music_On"
-                    },
-                    "x": 234,
-                    "y": 75,
-                    "scaleX": 0.5,
-                    "scaleY": 0.5,
-                    "visible": false
+                    "y": -150,
+                    "list": [
+                        {
+                            "type": "Image",
+                            "id": "887ca36e-8883-4039-a4fd-1d989012d499",
+                            "label": "score_base",
+                            "components": [],
+                            "texture": {
+                                "key": "score_base"
+                            },
+                            "x": 909,
+                            "y": 18
+                        },
+                        {
+                            "type": "Text",
+                            "id": "8bc21d1b-2f5c-4e3d-9f54-d811725e7033",
+                            "label": "txt_score",
+                            "scope": "CLASS",
+                            "components": [],
+                            "x": 909,
+                            "y": 118,
+                            "originX": 0.5,
+                            "originY": 0.5,
+                            "text": "0",
+                            "align": "center",
+                            "fontSize": "40px",
+                            "stroke": "#2B5873",
+                            "strokeThickness": 3,
+                            "shadow.offsetX": 1,
+                            "shadow.offsetY": 1,
+                            "shadow.stroke": true,
+                            "shadow.fill": true,
+                            "shadow.color": "#2B5873",
+                            "shadow.blur": 2
+                        },
+                        {
+                            "type": "Text",
+                            "id": "bea2498e-67e2-4016-a34e-1137bfcab0ec",
+                            "label": "text",
+                            "components": [],
+                            "x": 909,
+                            "y": 60,
+                            "originX": 0.5,
+                            "originY": 0.5,
+                            "text": "SCORE",
+                            "align": "center",
+                            "fontSize": "40px",
+                            "stroke": "#2B5873",
+                            "strokeThickness": 4,
+                            "shadow.stroke": true,
+                            "shadow.fill": true,
+                            "shadow.color": "#2B5873",
+                            "shadow.blur": 2
+                        }
+                    ]
                 },
                 {
                     "type": "Image",
-                    "id": "15a32819-eecc-4c03-965e-e048e510c699",
-                    "label": "btn_sound_on",
-                    "useGameObjectName": true,
+                    "id": "9cb0c47f-71d2-464d-ab18-f0ba4bc267fd",
+                    "label": "settings_base",
                     "scope": "CLASS",
                     "components": [],
                     "texture": {
-                        "key": "Sound_On"
+                        "key": "settings_base"
                     },
-                    "x": 372,
-                    "y": 75,
-                    "scaleX": 0.5,
-                    "scaleY": 0.5,
-                    "visible": false
+                    "x": 25,
+                    "y": 74,
+                    "scaleX": 0.3,
+                    "originX": 0,
+                    "visible": false,
+                    "alpha": 0.25,
+                    "alphaTopLeft": 0.25,
+                    "alphaTopRight": 0.25,
+                    "alphaBottomLeft": 0.25,
+                    "alphaBottomRight": 0.25
+                },
+                {
+                    "type": "Container",
+                    "id": "cb9e8252-7d16-4220-8025-e53c1255990d",
+                    "label": "container_settings",
+                    "scope": "CLASS",
+                    "components": [],
+                    "visible": false,
+                    "list": [
+                        {
+                            "type": "Image",
+                            "id": "1f9752c7-7592-4f50-9db9-5f3b04197ed3",
+                            "label": "btn_music_on",
+                            "useGameObjectName": true,
+                            "scope": "CLASS",
+                            "components": [],
+                            "texture": {
+                                "key": "Music_On"
+                            },
+                            "x": 100,
+                            "y": 77,
+                            "scaleX": 0.5,
+                            "scaleY": 0.5
+                        },
+                        {
+                            "type": "Image",
+                            "id": "15a32819-eecc-4c03-965e-e048e510c699",
+                            "label": "btn_sound_on",
+                            "useGameObjectName": true,
+                            "scope": "CLASS",
+                            "components": [],
+                            "texture": {
+                                "key": "Sound_On"
+                            },
+                            "x": 100,
+                            "y": 74,
+                            "scaleX": 0.5,
+                            "scaleY": 0.5
+                        },
+                        {
+                            "type": "Image",
+                            "id": "fcef0b5e-756a-4096-a924-7d6ba8688e8c",
+                            "label": "btn_info",
+                            "scope": "CLASS",
+                            "components": [],
+                            "texture": {
+                                "key": "btn_info"
+                            },
+                            "x": 100,
+                            "y": 73,
+                            "scaleX": 0.5,
+                            "scaleY": 0.5
+                        }
+                    ]
                 },
                 {
                     "type": "Image",
@@ -330,7 +422,7 @@
                     "texture": {
                         "key": "btn_settings"
                     },
-                    "x": 96,
+                    "x": 100,
                     "y": 75,
                     "scaleX": 0.5,
                     "scaleY": 0.5
