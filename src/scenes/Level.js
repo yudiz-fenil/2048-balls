@@ -406,29 +406,29 @@ class Level extends Phaser.Scene {
 		this.scene.start("Home")
 	}
 	popTextAnimation = (n, x, y) => {
-		this.txt_poptext.setText("+" + n);
-		this.tweens.add({
-			targets: this.txt_poptext,
-			scaleX: 1,
-			scaleY: 1,
-			duration: 400,
-			onComplete: () => {
-				this.txt_poptext.setScale(0, 0);
-			}
-		})
-		// const popup_text = this.add.text(x, y, "+" + n, {});
-		// popup_text.setOrigin(0.5, 0.5);
-		// popup_text.setDepth(11);
-		// popup_text.setStyle({ "align": "center", "color": "#FFFFFF", "fontSize": "64px" });
+		// this.txt_poptext.setText("+" + n);
 		// this.tweens.add({
-		// 	targets: popup_text,
-		// 	x: x,
-		// 	y: y - 300,
-		// 	duration: 700,
+		// 	targets: this.txt_poptext,
+		// 	scaleX: 1,
+		// 	scaleY: 1,
+		// 	duration: 400,
 		// 	onComplete: () => {
-		// 		popup_text.destroy();
+		// 		this.txt_poptext.setScale(0, 0);
 		// 	}
 		// })
+		const popup_text = this.add.text(x, y, "+" + n, {});
+		popup_text.setOrigin(0.5, 0.5);
+		popup_text.setDepth(11);
+		popup_text.setStyle({ "align": "center", "color": "#FFFFFF", "fontSize": "64px" });
+		this.tweens.add({
+			targets: popup_text,
+			x: x,
+			y: y - 300,
+			duration: 800,
+			onComplete: () => {
+				popup_text.destroy();
+			}
+		})
 	}
 	settingsCloseAnimation = () => {
 		this.tweens.add({
@@ -613,7 +613,7 @@ class Level extends Phaser.Scene {
 				this.showBubbles(ball1.x, ball1.y);
 				this.updateScore(newSize);
 				this.popTextAnimation(newSize, ball1.x, ball1.y);
-				// ball2.destroy();
+				ball2.destroy();
 				if (newSize == 2048) {
 					this.winGame()
 					return;
