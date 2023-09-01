@@ -35,6 +35,7 @@
             "y": 1225,
             "originX": 0.5,
             "originY": 0.5,
+            "visible": false,
             "text": "0%",
             "fontSize": "100px"
         },
@@ -60,7 +61,7 @@
             "texture": {
                 "key": "progress_bar"
             },
-            "x": -160,
+            "x": 540,
             "y": 1660,
             "visible": false
         },

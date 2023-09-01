@@ -93,6 +93,15 @@
 			-webkit-animation-duration: 90s;
 		}
 
+		#submarine_light {
+			position: absolute;
+			bottom: 3%;
+			right: 60%;
+			-webkit-animation: linear infinite;
+			-webkit-animation-name: submarine_light;
+			-webkit-animation-duration: 5s;
+		}
+
 		@-webkit-keyframes run {
 			0% {
 				left: 0%;
@@ -179,7 +188,7 @@
 
 		@-webkit-keyframes submarine1 {
 			0% {
-				right: -30%;
+				right: -25%;
 			}
 
 			50% {
@@ -192,8 +201,30 @@
 			}
 
 			100% {
-				right: -30%;
+				right: -25%;
 				transform: rotateY(180deg);
+			}
+		}
+
+		@-webkit-keyframes submarine_light {
+			0% {
+				opacity: 0;
+			}
+
+			25% {
+				opacity: 0.5;
+			}
+
+			50% {
+				opacity: 1;
+			}
+
+			75% {
+				opacity: 0.5;
+			}
+
+			100% {
+				opacity: 0;
 			}
 		}
 	</style>
@@ -203,10 +234,12 @@
 <body>
 	<img src="assets/images/fishes/fish1.png" alt="fish1" id="fish1" />
 	<img src="assets/images/fishes/tiny_fish.png" alt="fish2" id="fish2" />
-	<img src="assets/images/fishes/fist_group.png" alt="fish3" id="fish3" />
+	<img src="assets/images/fishes/little_fish_group.png" alt="fish3" id="fish3" />
 	<img src="assets/images/fishes/little_fish_group.png" alt="fish3" id="fish4" />
-	<!-- <img src="assets/images/bubble.png" alt="bubble" id="bubble" /> -->
-	<img src="assets/images/fishes/submarine.png" alt="submarine" id="submarine" />
+	<div id="submarine">
+		<img src="assets/images/fishes/submarine.png" alt="submarine" />
+		<img src="assets/images/fishes/submarine_light.png" alt="submarine_light" id="submarine_light" />
+	</div>
 </body>
 
 </html>

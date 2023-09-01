@@ -29,6 +29,7 @@ class Preload extends Phaser.Scene {
 		// progress
 		const progress = this.add.text(540, 1225, "", {});
 		progress.setOrigin(0.5, 0.5);
+		progress.visible = false;
 		progress.text = "0%";
 		progress.setStyle({ "fontSize": "100px" });
 
@@ -37,14 +38,14 @@ class Preload extends Phaser.Scene {
 		energyContainer.visible = false;
 
 		// energyBar
-		const energyBar = this.add.image(-160, 1660, "progress_bar");
+		const energyBar = this.add.image(540, 1660, "progress_bar");
 		energyBar.visible = false;
 
 		// text
 		const text = this.add.text(540, 1572, "", {});
 		text.setOrigin(0.5, 0.5);
 		text.text = "LOADING...";
-		text.setStyle({ "align": "center", "fontSize": "44px", "stroke": "#2B5873", "strokeThickness": 5, "shadow.color": "#2B5873", "shadow.blur": 2, "shadow.stroke": true, "shadow.fill": true });
+		text.setStyle({ "align": "center", "fontSize": "44px", "stroke": "#2B5873", "strokeThickness":5,"shadow.color": "#2B5873", "shadow.blur":2,"shadow.stroke":true,"shadow.fill":true});
 
 		// mask_rect
 		const mask_rect = this.add.rectangle(539.5, 1659, 707, 48);
@@ -93,15 +94,62 @@ class Preload extends Phaser.Scene {
 		this.editorCreate();
 
 		this.editorPreload();
-
 		this.isGameLoaded1 = false;
 		this.isGameLoaded2 = false;
 
-		this.load.on(Phaser.Loader.Events.COMPLETE, (p) => this.scene.start("Home"));
-		// this.load.on(Phaser.Loader.Events.COMPLETE, (p) => {
-		// 	this.isGameLoaded1 = true;
-		// });
+		this.load.on(Phaser.Loader.Events.COMPLETE, (p) => {
+			this.isGameLoaded1 = true;
+		});
 
+		this.outerBar = this.add.sprite(540, 1660, "progress_bar_base");
+		this.outerBar.setOrigin(0.5);
+
+		this.innerBar = this.add.sprite(
+			this.outerBar.x - this.outerBar.displayWidth / 2,
+			this.outerBar.y,
+			"progress_bar"
+		);
+		this.innerBar.setOrigin(0, 0.5);
+
+		this.innerBarWidth = this.innerBar.displayWidth;
+
+		this.maskGraphics = this.make.graphics();
+		this.maskGraphics.fillStyle(0xffffff);
+		this.maskGraphics.fillRect(
+			this.innerBar.x,
+			this.innerBar.y - this.innerBar.displayHeight / 2,
+			this.innerBar.displayWidth,
+			this.innerBar.displayHeight
+		);
+
+		this.innerBar.setMask(this.maskGraphics.createGeometryMask());
+
+		const loadingDuration = 3000;
+		const intervalDuration = 30;
+		const numIntervals = loadingDuration / intervalDuration;
+		let currentInterval = 0;
+		const progressIncrement = 1 / numIntervals;
+
+		const updateProgressBar = () => {
+			const currentProgress = currentInterval * progressIncrement;
+			this.maskGraphics.clear();
+			this.maskGraphics.fillStyle(0xffffff);
+			this.maskGraphics.fillRect(
+				this.innerBar.x,
+				this.innerBar.y - this.innerBar.displayHeight / 2,
+				this.innerBarWidth * currentProgress,
+				this.innerBar.displayHeight
+			);
+
+			currentInterval++;
+
+			if (currentProgress >= 1) {
+				clearInterval(progressInterval);
+				this.isGameLoaded2 = true;
+			}
+		};
+
+		const progressInterval = setInterval(updateProgressBar, intervalDuration);
 	}
 
 	update() {

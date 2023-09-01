@@ -2,16 +2,16 @@ class GameManager {
 	constructor(oScene) {
 		this.oBalls = {
 			2: {
-				nLabel: 2, nSize: 200, nColor: 0x721f0f, sColor: "#815B00", nBorder: 0xcc381a, sFontSize: "80px", sTexture: "b2", sLine: "a2"
+				nLabel: 2, nSize: 200, nColor: 0x721f0f, sColor: "#815B00", nBorder: 0xcc381a, sFontSize: "80px", sTexture: "b2", sLine: "orange_light"
 			},
 			4: {
-				nLabel: 4, nSize: 220, nColor: 0x7b7900, sColor: "#817b00", nBorder: 0xbcb801, sFontSize: "90px", sTexture: "b4", sLine: "a4"
+				nLabel: 4, nSize: 220, nColor: 0x7b7900, sColor: "#817b00", nBorder: 0xbcb801, sFontSize: "90px", sTexture: "b4", sLine: "yellow_light"
 			},
 			8: {
-				nLabel: 8, nSize: 240, nColor: 0x487609, sColor: "#00810f", nBorder: 0x72ba0c, sFontSize: "100px", sTexture: "b8", sLine: "a8"
+				nLabel: 8, nSize: 240, nColor: 0x487609, sColor: "#00810f", nBorder: 0x72ba0c, sFontSize: "100px", sTexture: "b8", sLine: "green_light"
 			},
 			16: {
-				nLabel: 16, nSize: 260, nColor: 0x267479, sColor: "#00817f", nBorder: 0x44c4cc, sFontSize: "100px", sTexture: "b16", sLine: "a16"
+				nLabel: 16, nSize: 260, nColor: 0x267479, sColor: "#00817f", nBorder: 0x44c4cc, sFontSize: "100px", sTexture: "b16", sLine: "cyan_light"
 			},
 			32: {
 				nLabel: 32, nSize: 280, nColor: 0x493978, sColor: "#6e0081", nBorder: 0x7c61cc, sFontSize: "100px", sTexture: "b32", sLine: "a32"

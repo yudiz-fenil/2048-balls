@@ -2,26 +2,6 @@
     "section1": {
         "files": [
             {
-                "url": "assets/images/shootingline/a16.png",
-                "type": "image",
-                "key": "a16"
-            },
-            {
-                "url": "assets/images/shootingline/a2.png",
-                "type": "image",
-                "key": "a2"
-            },
-            {
-                "url": "assets/images/shootingline/a4.png",
-                "type": "image",
-                "key": "a4"
-            },
-            {
-                "url": "assets/images/shootingline/a8.png",
-                "type": "image",
-                "key": "a8"
-            },
-            {
                 "url": "assets/images/balls/b1024.png",
                 "type": "image",
                 "key": "b1024"
@@ -87,9 +67,79 @@
                 "key": "btn_settings"
             },
             {
+                "url": "assets/images/buttons/btn_settings_base.png",
+                "type": "image",
+                "key": "btn_settings_base"
+            },
+            {
                 "url": "assets/images/bubble_lock.png",
                 "type": "image",
                 "key": "bubble_lock"
+            },
+            {
+                "url": "assets/images/shootingline/b16/c1.png",
+                "type": "image",
+                "key": "c1"
+            },
+            {
+                "url": "assets/images/shootingline/b16/c10.png",
+                "type": "image",
+                "key": "c10"
+            },
+            {
+                "url": "assets/images/shootingline/b16/c11.png",
+                "type": "image",
+                "key": "c11"
+            },
+            {
+                "url": "assets/images/shootingline/b16/c12.png",
+                "type": "image",
+                "key": "c12"
+            },
+            {
+                "url": "assets/images/shootingline/b16/c13.png",
+                "type": "image",
+                "key": "c13"
+            },
+            {
+                "url": "assets/images/shootingline/b16/c2.png",
+                "type": "image",
+                "key": "c2"
+            },
+            {
+                "url": "assets/images/shootingline/b16/c3.png",
+                "type": "image",
+                "key": "c3"
+            },
+            {
+                "url": "assets/images/shootingline/b16/c4.png",
+                "type": "image",
+                "key": "c4"
+            },
+            {
+                "url": "assets/images/shootingline/b16/c5.png",
+                "type": "image",
+                "key": "c5"
+            },
+            {
+                "url": "assets/images/shootingline/b16/c6.png",
+                "type": "image",
+                "key": "c6"
+            },
+            {
+                "url": "assets/images/shootingline/b16/c7.png",
+                "type": "image",
+                "key": "c7"
+            },
+            {
+                "url": "assets/images/shootingline/b16/c8.png",
+                "type": "image",
+                "key": "c8"
+            },
+            {
+                "url": "assets/images/shootingline/b16/c9.png",
+                "type": "image",
+                "key": "c9"
             },
             {
                 "url": "assets/images/fishes/fish1.png",
@@ -97,14 +147,69 @@
                 "key": "fish1"
             },
             {
-                "url": "assets/images/fishes/fish2.png",
+                "url": "assets/images/shootingline/b8/g1.png",
                 "type": "image",
-                "key": "fish2"
+                "key": "g1"
             },
             {
-                "url": "assets/images/fishes/fish3.png",
+                "url": "assets/images/shootingline/b8/g10.png",
                 "type": "image",
-                "key": "fish3"
+                "key": "g10"
+            },
+            {
+                "url": "assets/images/shootingline/b8/g11.png",
+                "type": "image",
+                "key": "g11"
+            },
+            {
+                "url": "assets/images/shootingline/b8/g12.png",
+                "type": "image",
+                "key": "g12"
+            },
+            {
+                "url": "assets/images/shootingline/b8/g13.png",
+                "type": "image",
+                "key": "g13"
+            },
+            {
+                "url": "assets/images/shootingline/b8/g2.png",
+                "type": "image",
+                "key": "g2"
+            },
+            {
+                "url": "assets/images/shootingline/b8/g3.png",
+                "type": "image",
+                "key": "g3"
+            },
+            {
+                "url": "assets/images/shootingline/b8/g4.png",
+                "type": "image",
+                "key": "g4"
+            },
+            {
+                "url": "assets/images/shootingline/b8/g5.png",
+                "type": "image",
+                "key": "g5"
+            },
+            {
+                "url": "assets/images/shootingline/b8/g6.png",
+                "type": "image",
+                "key": "g6"
+            },
+            {
+                "url": "assets/images/shootingline/b8/g7.png",
+                "type": "image",
+                "key": "g7"
+            },
+            {
+                "url": "assets/images/shootingline/b8/g8.png",
+                "type": "image",
+                "key": "g8"
+            },
+            {
+                "url": "assets/images/shootingline/b8/g9.png",
+                "type": "image",
+                "key": "g9"
             },
             {
                 "url": "src/scripts/GameManager.js",
@@ -182,11 +287,6 @@
                 "key": "JellyPrefab"
             },
             {
-                "url": "assets/images/shootingline/line.png",
-                "type": "image",
-                "key": "line"
-            },
-            {
                 "url": "assets/images/popups/lost.png",
                 "type": "image",
                 "key": "lost"
@@ -200,6 +300,71 @@
                 "url": "assets/images/buttons/Music_On.png",
                 "type": "image",
                 "key": "Music_On"
+            },
+            {
+                "url": "assets/images/shootingline/b2/o1.png",
+                "type": "image",
+                "key": "o1"
+            },
+            {
+                "url": "assets/images/shootingline/b2/o10.png",
+                "type": "image",
+                "key": "o10"
+            },
+            {
+                "url": "assets/images/shootingline/b2/o11.png",
+                "type": "image",
+                "key": "o11"
+            },
+            {
+                "url": "assets/images/shootingline/b2/o12.png",
+                "type": "image",
+                "key": "o12"
+            },
+            {
+                "url": "assets/images/shootingline/b2/o13.png",
+                "type": "image",
+                "key": "o13"
+            },
+            {
+                "url": "assets/images/shootingline/b2/o2.png",
+                "type": "image",
+                "key": "o2"
+            },
+            {
+                "url": "assets/images/shootingline/b2/o3.png",
+                "type": "image",
+                "key": "o3"
+            },
+            {
+                "url": "assets/images/shootingline/b2/o4.png",
+                "type": "image",
+                "key": "o4"
+            },
+            {
+                "url": "assets/images/shootingline/b2/o5.png",
+                "type": "image",
+                "key": "o5"
+            },
+            {
+                "url": "assets/images/shootingline/b2/o6.png",
+                "type": "image",
+                "key": "o6"
+            },
+            {
+                "url": "assets/images/shootingline/b2/o7.png",
+                "type": "image",
+                "key": "o7"
+            },
+            {
+                "url": "assets/images/shootingline/b2/o8.png",
+                "type": "image",
+                "key": "o8"
+            },
+            {
+                "url": "assets/images/shootingline/b2/o9.png",
+                "type": "image",
+                "key": "o9"
             },
             {
                 "url": "assets/images/buttons/Play_Button.png",
@@ -227,6 +392,11 @@
                 "key": "shoot_ball_bubble"
             },
             {
+                "url": "assets/animations/shooting-lines.json",
+                "type": "animation",
+                "key": "shooting-lines"
+            },
+            {
                 "url": "assets/images/buttons/Sound_Off.png",
                 "type": "image",
                 "key": "Sound_Off"
@@ -250,6 +420,71 @@
                 "url": "assets/images/popups/won.png",
                 "type": "image",
                 "key": "won"
+            },
+            {
+                "url": "assets/images/shootingline/b4/y1.png",
+                "type": "image",
+                "key": "y1"
+            },
+            {
+                "url": "assets/images/shootingline/b4/y10.png",
+                "type": "image",
+                "key": "y10"
+            },
+            {
+                "url": "assets/images/shootingline/b4/y11.png",
+                "type": "image",
+                "key": "y11"
+            },
+            {
+                "url": "assets/images/shootingline/b4/y12.png",
+                "type": "image",
+                "key": "y12"
+            },
+            {
+                "url": "assets/images/shootingline/b4/y13.png",
+                "type": "image",
+                "key": "y13"
+            },
+            {
+                "url": "assets/images/shootingline/b4/y2.png",
+                "type": "image",
+                "key": "y2"
+            },
+            {
+                "url": "assets/images/shootingline/b4/y3.png",
+                "type": "image",
+                "key": "y3"
+            },
+            {
+                "url": "assets/images/shootingline/b4/y4.png",
+                "type": "image",
+                "key": "y4"
+            },
+            {
+                "url": "assets/images/shootingline/b4/y5.png",
+                "type": "image",
+                "key": "y5"
+            },
+            {
+                "url": "assets/images/shootingline/b4/y6.png",
+                "type": "image",
+                "key": "y6"
+            },
+            {
+                "url": "assets/images/shootingline/b4/y7.png",
+                "type": "image",
+                "key": "y7"
+            },
+            {
+                "url": "assets/images/shootingline/b4/y8.png",
+                "type": "image",
+                "key": "y8"
+            },
+            {
+                "url": "assets/images/shootingline/b4/y9.png",
+                "type": "image",
+                "key": "y9"
             },
             {
                 "url": "assets/images/yellow_border.png",

@@ -101,12 +101,9 @@ class Level extends Phaser.Scene {
 		shoot_ball_bubble.scaleY = 0.8;
 		container_ball_tracker.add(shoot_ball_bubble);
 
-		// shooting_light
-		const shooting_light = this.add.image(0, 503, "a2");
-		container_ball_tracker.add(shooting_light);
-
 		// shooting_line
-		const shooting_line = this.add.image(0, 503, "line");
+		const shooting_line = this.add.sprite(0, 62, "o1");
+		shooting_line.setOrigin(0.5, 0);
 		container_ball_tracker.add(shooting_line);
 
 		// container_balls
@@ -167,7 +164,6 @@ class Level extends Phaser.Scene {
 
 		// settings_base
 		const settings_base = this.add.image(25, 74, "settings_base");
-		settings_base.scaleX = 0.3;
 		settings_base.setOrigin(0, 0.5);
 		settings_base.visible = false;
 		settings_base.alpha = 0.25;
@@ -201,6 +197,12 @@ class Level extends Phaser.Scene {
 		btn_info.scaleX = 0.5;
 		btn_info.scaleY = 0.5;
 		container_settings.add(btn_info);
+
+		// btn_settings_base
+		const btn_settings_base = this.add.image(100, 75, "btn_settings_base");
+		btn_settings_base.scaleX = 0.5;
+		btn_settings_base.scaleY = 0.5;
+		container_header.add(btn_settings_base);
 
 		// btn_settings
 		const btn_settings = this.add.image(100, 75, "btn_settings");
@@ -286,7 +288,6 @@ class Level extends Phaser.Scene {
 		this.container_ball_tracker = container_ball_tracker;
 		this.ball_tracker_img = ball_tracker_img;
 		this.shoot_ball_bubble = shoot_ball_bubble;
-		this.shooting_light = shooting_light;
 		this.shooting_line = shooting_line;
 		this.container_balls = container_balls;
 		this.end_line = end_line;
@@ -298,6 +299,7 @@ class Level extends Phaser.Scene {
 		this.btn_music_on = btn_music_on;
 		this.btn_sound_on = btn_sound_on;
 		this.btn_info = btn_info;
+		this.btn_settings_base = btn_settings_base;
 		this.btn_settings = btn_settings;
 		this.container_popup = container_popup;
 		this.bg_rect = bg_rect;
@@ -322,9 +324,7 @@ class Level extends Phaser.Scene {
 	ball_tracker_img;
 	/** @type {Phaser.GameObjects.Image} */
 	shoot_ball_bubble;
-	/** @type {Phaser.GameObjects.Image} */
-	shooting_light;
-	/** @type {Phaser.GameObjects.Image} */
+	/** @type {Phaser.GameObjects.Sprite} */
 	shooting_line;
 	/** @type {Phaser.GameObjects.Container} */
 	container_balls;
@@ -346,6 +346,8 @@ class Level extends Phaser.Scene {
 	btn_sound_on;
 	/** @type {Phaser.GameObjects.Image} */
 	btn_info;
+	/** @type {Phaser.GameObjects.Image} */
+	btn_settings_base;
 	/** @type {Phaser.GameObjects.Image} */
 	btn_settings;
 	/** @type {Phaser.GameObjects.Container} */
@@ -439,6 +441,11 @@ class Level extends Phaser.Scene {
 				this.settings_base.setVisible(false);
 			}
 		})
+		this.tweens.add({
+			targets: this.btn_settings,
+			duration: 200,
+			angle: -360,
+		})
 		for (let i = 0; i < this.container_settings.length; i++) {
 			this.tweens.add({
 				targets: this.container_settings.list[i],
@@ -462,6 +469,11 @@ class Level extends Phaser.Scene {
 			onComplete: () => {
 			}
 		})
+		this.tweens.add({
+			targets: this.btn_settings,
+			duration: 200,
+			angle: 360,
+		})
 		for (let i = 0; i < this.container_settings.length; i++) {
 			this.tweens.add({
 				targets: this.container_settings.list[i],
@@ -484,14 +496,15 @@ class Level extends Phaser.Scene {
 		}
 	}
 	lightAnimation = () => {
-		this.tweens.add({
-			targets: this.shooting_light,
-			alpha: 0.5,
-			duration: 1000,
-			yoyo: true,
-			repeat: -1,
-			ease: 'Sine.easeInOut'
-		});
+		// this.shooting_line.anims.play("orange_light");
+		// this.tweens.add({
+		// 	targets: this.shooting_light,
+		// 	alpha: 0.5,
+		// 	duration: 1000,
+		// 	yoyo: true,
+		// 	repeat: -1,
+		// 	ease: 'Sine.easeInOut'
+		// });
 	}
 	scoreBoardAnimation = () => {
 		this.tweens.add({
@@ -518,6 +531,11 @@ class Level extends Phaser.Scene {
 			}
 		})
 	}
+	maskSettingBase = () => {
+		this.energyMask = this.add.sprite(this.settings_base.x, this.settings_base.y, "settings_base").setOrigin(0, 0.5);
+		this.energyMask.visible = false;
+		this.settings_base.mask = new Phaser.Display.Masks.BitmapMask(this, this.energyMask);
+	}
 	create() {
 		this.oGameManager = new GameManager(this);
 		this.jellyFishAnimation(108, 1825, 1900, 500, false, 20000, 0);
@@ -533,16 +551,18 @@ class Level extends Phaser.Scene {
 		this.oBalls = this.oGameManager.oBalls;
 		this.nScore = 0;
 		this.updateScore(0);
-		this.lightAnimation();
+		this.shooting_line.anims.play("orange_light");
 		this.scoreBoardAnimation();
+		this.maskSettingBase();
 		this.nCurrentBall = 2;
 		this.ballsGroup = this.add.group();
 		this.isGameOver = false;
 		this.btn_replay.setInteractive().on('pointerdown', () => this.scene.restart());
 		this.btn_home.setInteractive().on('pointerdown', () => this.goToHome());
-		this.btn_settings.setInteractive().on('pointerdown', () => this.settingsHandler());
+		this.btn_settings_base.setInteractive().on('pointerdown', () => this.settingsHandler());
 		this.btn_info.setInteractive().on('pointerdown', () => this.infoHandler());
 		this.bg_rect.setInteractive().on('pointerdown', () => { });
+		this.settings_base.setInteractive().on('pointerdown', () => { });
 		this.physics.add.existing(this.end_line);
 		this.physics.add.collider(this.ballsGroup, this.ballsGroup, this.mergeballs);
 		this.physics.add.overlap(this.ballsGroup, this.end_line, () => this.gameOver());
@@ -663,7 +683,7 @@ class Level extends Phaser.Scene {
 	setBall = (nBall) => {
 		this.ball_tracker_img.setTexture(this.oBalls[nBall].sTexture);
 		this.nCurrentBall = nBall;
-		this.shooting_light.setTexture(this.oBalls[nBall].sLine);
+		this.shooting_line.anims.play(this.oBalls[nBall].sLine);
 		this.ball_tracker_img.setDisplaySize(this.shoot_ball_bubble.displayWidth - 8, this.shoot_ball_bubble.displayHeight - 8);
 	}
 	handleTracker = () => {

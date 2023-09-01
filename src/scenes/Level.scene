@@ -177,26 +177,16 @@
                     "scaleY": 0.8
                 },
                 {
-                    "type": "Image",
-                    "id": "4046cac6-bb21-47bd-ad6c-6ffbab071be4",
-                    "label": "shooting_light",
-                    "scope": "CLASS",
-                    "components": [],
-                    "texture": {
-                        "key": "a2"
-                    },
-                    "y": 503
-                },
-                {
-                    "type": "Image",
+                    "type": "Sprite",
                     "id": "a61548a2-7db6-4e59-a9e9-bb498a60bea9",
                     "label": "shooting_line",
                     "scope": "CLASS",
                     "components": [],
                     "texture": {
-                        "key": "line"
+                        "key": "o1"
                     },
-                    "y": 503
+                    "y": 62,
+                    "originY": 0
                 }
             ]
         },
@@ -350,7 +340,6 @@
                     },
                     "x": 25,
                     "y": 74,
-                    "scaleX": 0.3,
                     "originX": 0,
                     "visible": false,
                     "alpha": 0.25,
@@ -412,6 +401,20 @@
                             "scaleY": 0.5
                         }
                     ]
+                },
+                {
+                    "type": "Image",
+                    "id": "340c5796-bb39-401d-9471-e6ac8cb92793",
+                    "label": "btn_settings_base",
+                    "scope": "CLASS",
+                    "components": [],
+                    "texture": {
+                        "key": "btn_settings_base"
+                    },
+                    "x": 100,
+                    "y": 75,
+                    "scaleX": 0.5,
+                    "scaleY": 0.5
                 },
                 {
                     "type": "Image",
