@@ -92,11 +92,6 @@
                 "key": "bubble_lock"
             },
             {
-                "url": "assets/images/buttons/Exit.png",
-                "type": "image",
-                "key": "Exit"
-            },
-            {
                 "url": "assets/images/fishes/fish1.png",
                 "type": "image",
                 "key": "fish1"

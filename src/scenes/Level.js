@@ -520,14 +520,14 @@ class Level extends Phaser.Scene {
 	}
 	create() {
 		this.oGameManager = new GameManager(this);
-		this.jellyFishAnimation(108, 1825, 1900, 500, false, 10000, 0);
-		this.jellyFishAnimation(1145, 1266, 0, 500, true, 10000, 0);
+		this.jellyFishAnimation(108, 1825, 1900, 500, false, 20000, 0);
+		this.jellyFishAnimation(1145, 1266, 0, 500, true, 20000, 0);
 
-		this.jellyFishAnimation(-121, 1260, 1104, -273, false, 10000, 500);
-		this.jellyFishAnimation(-70, 1357, 1155, -176, false, 10000, 600);
-		this.jellyFishAnimation(-121, 1499, 1104, -34, false, 10000, 750);
-		this.jellyFishAnimation(-201, 1434, 1024, -99, false, 10000, 100);
-		this.jellyFishAnimation(-240, 1316, 985, -217, false, 10000, 1000);
+		this.jellyFishAnimation(-121, 1260, 1104, -273, false, 20000, 500);
+		this.jellyFishAnimation(-70, 1357, 1155, -176, false, 20000, 600);
+		this.jellyFishAnimation(-121, 1499, 1104, -34, false, 20000, 750);
+		this.jellyFishAnimation(-201, 1434, 1024, -99, false, 20000, 100);
+		this.jellyFishAnimation(-240, 1316, 985, -217, false, 20000, 1000);
 
 		this.editorCreate();
 		this.oBalls = this.oGameManager.oBalls;

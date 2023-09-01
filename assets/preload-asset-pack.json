@@ -37,11 +37,6 @@
                 "key": "home_logo"
             },
             {
-                "url": "assets/images/logo.png",
-                "type": "image",
-                "key": "logo"
-            },
-            {
                 "url": "src/prefabs/LogoPrefab.js",
                 "type": "script",
                 "key": "LogoPrefab"
