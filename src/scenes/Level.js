@@ -626,8 +626,28 @@ class Level extends Phaser.Scene {
 				ball1.setName(newSize);
 				ball1.setTexture(this.oBalls[newSize].sTexture);
 				const body = ball1.body;
-				body.setCircle((ball1.width / 2) - 6);
-				body.setOffset(6, 6);
+				switch (newSize) {
+					case 128:
+						body.setCircle((ball1.width / 2) - 5);
+						body.setOffset(5, 12);
+						break;
+					case 256:
+						body.setCircle((ball1.width / 2) - 14);
+						body.setOffset(13, 17);
+						break;
+					case 512:
+						body.setCircle((ball1.width / 2) - 8);
+						body.setOffset(7, 11);
+						break;
+					case 1024:
+						body.setCircle((ball1.width / 2) - 13);
+						body.setOffset(11, 15);
+						break;
+					default:
+						body.setCircle((ball1.width / 2) - 6);
+						body.setOffset(6, 6);
+						break;
+				}
 				body.setBounce(0.7);
 
 				this.showBubbles(ball1.x, ball1.y);
@@ -647,11 +667,11 @@ class Level extends Phaser.Scene {
 			}
 		}
 	}
-	generateBall = (sBall) => {
+	generateBall = (nBall) => {
 		if (this.container_ball_tracker.visible && !this.isGameOver) {
-			const ball1 = this.physics.add.image(this.container_ball_tracker.x, this.end_line.y + 140, this.oBalls[sBall].sTexture);
+			const ball1 = this.physics.add.image(this.container_ball_tracker.x, this.end_line.y + 140, this.oBalls[nBall].sTexture);
 			this.container_balls.add(ball1);
-			ball1.setName(this.oBalls[sBall].nLabel);
+			ball1.setName(this.oBalls[nBall].nLabel);
 			this.ballsGroup.add(ball1);
 			const body = ball1.body;
 			body.setCollideWorldBounds(true);
