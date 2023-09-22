@@ -20,7 +20,7 @@ class Home extends Phaser.Scene {
 		this.add.image(540, 960, "background");
 
 		// balls_bg_rect_2
-		const balls_bg_rect_2 = this.add.rectangle(0, 0, 1080, 1920);
+		const balls_bg_rect_2 = this.add.rectangle(0, 1, 1080, 1920);
 		balls_bg_rect_2.setOrigin(0, 0);
 		balls_bg_rect_2.visible = false;
 		balls_bg_rect_2.isFilled = true;
@@ -48,7 +48,7 @@ class Home extends Phaser.Scene {
 		this.add.existing(logoPrefab);
 
 		// btn_info
-		const btn_info = this.add.image(790, 1630, "btn_info");
+		const btn_info = this.add.image(790, 1629, "btn_info");
 		btn_info.scaleX = 0.8;
 		btn_info.scaleY = 0.8;
 
@@ -84,6 +84,29 @@ class Home extends Phaser.Scene {
 				if (callback) callback();
 			}
 		});
+	}
+	pointerOver = (btn, scale) => {
+		this.input.setDefaultCursor('pointer');
+		this.tweens.add({
+			targets: btn,
+			scaleX: scale + 0.05,
+			scaleY: scale + 0.05,
+			duration: 50
+		})
+	}
+	pointerOut = (btn, scale) => {
+		this.input.setDefaultCursor('default');
+		this.tweens.add({
+			targets: btn,
+			scaleX: scale,
+			scaleY: scale,
+			duration: 50,
+			onComplete: () => {
+				btn.forEach(element => {
+					element.setScale(scale);
+				});
+			}
+		})
 	}
 	jellyFishAnimation = (x, y, targetsX, targetsY, flipX, duration, time) => {
 		const jelly = this.add.sprite(x, y, "j1");
@@ -121,7 +144,6 @@ class Home extends Phaser.Scene {
 			}
 			this.btnAnimation(this.btn_play_button, callback);
 		})
-
 		this.btn_music_on.setInteractive().on('pointerdown', () => {
 			const callback = () => {
 				if (this.isMusicPlaying) {
@@ -152,6 +174,15 @@ class Home extends Phaser.Scene {
 			};
 			this.btnAnimation(this.btn_sound_on, callback);
 		})
+
+		this.btn_info.on('pointerover', () => this.pointerOver([this.btn_info], 0.8));
+		this.btn_info.on('pointerout', () => this.pointerOut([this.btn_info], 0.8));
+		this.btn_music_on.on('pointerover', () => this.pointerOver([this.btn_music_on], 0.8));
+		this.btn_music_on.on('pointerout', () => this.pointerOut([this.btn_music_on], 0.8));
+		this.btn_sound_on.on('pointerover', () => this.pointerOver([this.btn_sound_on], 0.8));
+		this.btn_sound_on.on('pointerout', () => this.pointerOut([this.btn_sound_on], 0.8));
+		this.btn_play_button.on('pointerover', () => this.pointerOver([this.btn_play_button], 1));
+		this.btn_play_button.on('pointerout', () => this.pointerOut([this.btn_play_button], 1));
 	}
 
 	/* END-USER-CODE */

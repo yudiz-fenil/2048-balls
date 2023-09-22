@@ -25,6 +25,7 @@
             "id": "5fe82193-d2aa-4701-971d-13ff531877ba",
             "label": "balls_bg_rect_2",
             "components": [],
+            "y": 1,
             "originX": 0,
             "originY": 0,
             "visible": false,
@@ -100,7 +101,7 @@
                 "key": "btn_info"
             },
             "x": 790,
-            "y": 1630,
+            "y": 1629,
             "scaleX": 0.8,
             "scaleY": 0.8
         }

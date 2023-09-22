@@ -47,6 +47,7 @@
                     "type": "Rectangle",
                     "id": "ae845826-6e70-4874-9149-8af60c723923",
                     "label": "balls_bg_rect",
+                    "scope": "CLASS",
                     "components": [],
                     "x": -14,
                     "y": 285,

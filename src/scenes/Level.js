@@ -282,6 +282,7 @@ class Level extends Phaser.Scene {
 		star_2.visible = false;
 		container_stars.add(star_2);
 
+		this.balls_bg_rect = balls_bg_rect;
 		this.world_rect = world_rect;
 		this.lock_ball = lock_ball;
 		this.bubble_lock = bubble_lock;
@@ -312,6 +313,8 @@ class Level extends Phaser.Scene {
 		this.events.emit("scene-awake");
 	}
 
+	/** @type {Phaser.GameObjects.Rectangle} */
+	balls_bg_rect;
 	/** @type {Phaser.GameObjects.Rectangle} */
 	world_rect;
 	/** @type {Phaser.GameObjects.Image} */
@@ -538,6 +541,7 @@ class Level extends Phaser.Scene {
 	}
 	create() {
 		this.oGameManager = new GameManager(this);
+		this.input.setDefaultCursor("pointer");
 		this.jellyFishAnimation(108, 1825, 1900, 500, false, 20000, 0);
 		this.jellyFishAnimation(1145, 1266, 0, 500, true, 20000, 0);
 
@@ -546,6 +550,7 @@ class Level extends Phaser.Scene {
 		this.jellyFishAnimation(-121, 1499, 1104, -34, false, 20000, 750);
 		this.jellyFishAnimation(-201, 1434, 1024, -99, false, 20000, 100);
 		this.jellyFishAnimation(-240, 1316, 985, -217, false, 20000, 1000);
+
 
 		this.editorCreate();
 		this.oBalls = this.oGameManager.oBalls;
