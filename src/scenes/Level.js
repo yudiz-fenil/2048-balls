@@ -387,16 +387,22 @@ class Level extends Phaser.Scene {
 		this.btnAnimation(this.btn_music_on);
 		if (this.btn_music_on.texture.key == "Music_On") {
 			this.btn_music_on.setTexture("Music_Off")
+			this.isMusicPlaying = false;
+			this.homeScene.stopBGMusic();
 		} else {
 			this.btn_music_on.setTexture("Music_On")
+			this.isMusicPlaying = true;
+			this.homeScene.playBGMusic();
 		}
 	}
 	soundHandler = () => {
 		this.btnAnimation(this.btn_sound_on);
 		if (this.btn_sound_on.texture.key == "Sound_On") {
-			this.btn_sound_on.setTexture("Sound_Off")
+			this.btn_sound_on.setTexture("Sound_Off");
+			this.isSoundPlaying = false;
 		} else {
 			this.btn_sound_on.setTexture("Sound_On")
+			this.isSoundPlaying = true;
 		}
 	}
 	infoHandler = () => {
@@ -407,20 +413,11 @@ class Level extends Phaser.Scene {
 		this.txt_score.setText(this.nScore);
 	}
 	goToHome = () => {
+		const oData = { isMusicPlaying: false, isSoundPlaying: this.isSoundPlaying };
 		this.scene.stop("Level")
-		this.scene.start("Home")
+		this.scene.start("Home", { oData });
 	}
 	popTextAnimation = (n, x, y) => {
-		// this.txt_poptext.setText("+" + n);
-		// this.tweens.add({
-		// 	targets: this.txt_poptext,
-		// 	scaleX: 1,
-		// 	scaleY: 1,
-		// 	duration: 400,
-		// 	onComplete: () => {
-		// 		this.txt_poptext.setScale(0, 0);
-		// 	}
-		// })
 		const popup_text = this.add.text(x, y, "+" + n, {});
 		popup_text.setOrigin(0.5, 0.5);
 		popup_text.setDepth(11);
@@ -498,17 +495,6 @@ class Level extends Phaser.Scene {
 			this.settingsOpenAnimation();
 		}
 	}
-	lightAnimation = () => {
-		// this.shooting_line.anims.play("orange_light");
-		// this.tweens.add({
-		// 	targets: this.shooting_light,
-		// 	alpha: 0.5,
-		// 	duration: 1000,
-		// 	yoyo: true,
-		// 	repeat: -1,
-		// 	ease: 'Sine.easeInOut'
-		// });
-	}
 	scoreBoardAnimation = () => {
 		this.tweens.add({
 			y: 0,
@@ -539,8 +525,55 @@ class Level extends Phaser.Scene {
 		this.energyMask.visible = false;
 		this.settings_base.mask = new Phaser.Display.Masks.BitmapMask(this, this.energyMask);
 	}
+	init(data) {
+		this.isMusicPlaying = data.oData.isMusicPlaying;
+		this.isSoundPlaying = data.oData.isSoundPlaying;
+	}
+	btnTapSound = () => {
+		if (this.isSoundPlaying) {
+			this.oSoundManager.playSound(this.oSoundManager.btnTap, false);
+		}
+	}
+	bubbleUnlockSound = () => {
+		if (this.isSoundPlaying) {
+			this.oSoundManager.playSound(this.oSoundManager.bubbleUnlock, false);
+		}
+	}
+	bubbleMergeSound = () => {
+		if (this.isSoundPlaying) {
+			this.oSoundManager.playSound(this.oSoundManager.merge, false);
+		}
+	}
+	shootSound = () => {
+		if (this.isSoundPlaying) {
+			this.oSoundManager.playSound(this.oSoundManager.shoot, false);
+		}
+	}
+	gameWinSound = () => {
+		if (this.isMusicPlaying) {
+			this.oSoundManager.playSound(this.oSoundManager.gameWin, false);
+		}
+	}
+	gameLoseSound = () => {
+		if (this.isMusicPlaying) {
+			this.oSoundManager.playSound(this.oSoundManager.gameLose, false);
+		}
+	}
+	setMusicSound = () => {
+		if (this.isMusicPlaying) {
+			this.btn_music_on.setTexture("Music_On");
+		} else {
+			this.btn_music_on.setTexture("Music_Off");
+		}
+		if (this.isSoundPlaying) {
+			this.btn_sound_on.setTexture("Sound_On");
+		} else {
+			this.btn_sound_on.setTexture("Sound_Off");
+		}
+	}
 	create() {
 		this.oGameManager = new GameManager(this);
+		this.oSoundManager = new SoundManager(this);
 		this.input.setDefaultCursor("pointer");
 		this.jellyFishAnimation(108, 1825, 1900, 500, false, 20000, 0);
 		this.jellyFishAnimation(1145, 1266, 0, 500, true, 20000, 0);
@@ -553,6 +586,8 @@ class Level extends Phaser.Scene {
 
 
 		this.editorCreate();
+		this.homeScene = this.scene.get("Home");
+		this.setMusicSound();
 		this.oBalls = this.oGameManager.oBalls;
 		this.nScore = 0;
 		this.updateScore(0);
@@ -562,10 +597,24 @@ class Level extends Phaser.Scene {
 		this.nCurrentBall = 2;
 		this.ballsGroup = this.add.group();
 		this.isGameOver = false;
-		this.btn_replay.setInteractive().on('pointerdown', () => this.scene.restart());
-		this.btn_home.setInteractive().on('pointerdown', () => this.goToHome());
-		this.btn_settings_base.setInteractive().on('pointerdown', () => this.settingsHandler());
-		this.btn_info.setInteractive().on('pointerdown', () => this.infoHandler());
+		this.btn_replay.setInteractive().on('pointerdown', () => {
+			this.btnTapSound();
+			const oData = { isMusicPlaying: this.isMusicPlaying, isSoundPlaying: this.isSoundPlaying };
+			this.scene.restart({ oData });
+		});
+		this.btn_home.setInteractive().on('pointerdown', () => {
+			this.homeScene.stopBGMusic();
+			this.btnTapSound();
+			this.goToHome()
+		});
+		this.btn_settings_base.setInteractive().on('pointerdown', () => {
+			this.btnTapSound();
+			this.settingsHandler()
+		});
+		this.btn_info.setInteractive().on('pointerdown', () => {
+			this.btnTapSound();
+			this.infoHandler()
+		});
 		this.bg_rect.setInteractive().on('pointerdown', () => { });
 		this.settings_base.setInteractive().on('pointerdown', () => { });
 		this.physics.add.existing(this.end_line);
@@ -583,10 +632,12 @@ class Level extends Phaser.Scene {
 		this.bubbles = this.add.particles("bubble").setDepth(10);
 		this.particleStar = this.add.particles("star").setDepth(10);
 		this.btn_music_on.setInteractive().on('pointerdown', (e) => {
-			this.musicHandler()
+			this.musicHandler();
+			this.btnTapSound();
 		});
 		this.btn_sound_on.setInteractive().on('pointerdown', (e) => {
-			this.soundHandler()
+			this.soundHandler();
+			this.btnTapSound();
 		});
 		this.container_ball_tracker.setSize(1080, 1920);
 		this.container_ball_tracker.setInteractive();
@@ -616,6 +667,7 @@ class Level extends Phaser.Scene {
 			this.aLockedBalls.shift();
 			this.lock_ball.setTexture("b" + this.aLockedBalls[0]);
 			this.lock_ball.setDisplaySize(123, 123);
+			this.bubbleUnlockSound();
 		}
 	}
 	countStar = () => {
@@ -626,6 +678,7 @@ class Level extends Phaser.Scene {
 	mergeballs = (ball1, ball2) => {
 		if (!this.isGameOver) {
 			if (ball1.name == ball2.name) {
+				this.bubbleMergeSound();
 				const newSize = parseInt(ball1.name) * 2;
 
 				ball1.setName(newSize);
@@ -674,6 +727,7 @@ class Level extends Phaser.Scene {
 	}
 	generateBall = (nBall) => {
 		if (this.container_ball_tracker.visible && !this.isGameOver) {
+			this.shootSound();
 			const ball1 = this.physics.add.image(this.container_ball_tracker.x, this.end_line.y + 140, this.oBalls[nBall].sTexture);
 			this.container_balls.add(ball1);
 			ball1.setName(this.oBalls[nBall].nLabel);
@@ -696,8 +750,7 @@ class Level extends Phaser.Scene {
 		if (!this.isGameOver) this.container_ball_tracker.x = x;
 	}
 	getBall = () => {
-		const balls = [2, 4, 8, 2, 4, 8, 2, 4, 8, 16, 16]
-		// const balls = [16]
+		const balls = [2, 4, 8, 2, 4, 8, 2, 4, 8, 16, 16];
 		const n = Math.floor(Math.random() * balls.length);
 		if (this.aLockedBalls.includes(balls[n])) {
 			this.getBall();
@@ -723,13 +776,16 @@ class Level extends Phaser.Scene {
 		}, 1000);
 	}
 	gameOver = () => {
-		if (!this.isGameOver) this.popupAnimation(this.countStar());
+		if (!this.isGameOver) {
+			this.popupAnimation(this.countStar());
+			this.gameLoseSound();
+		}
 	}
 	winGame = () => {
 		this.isGameOver = true;
 		this.pop_status_label.setTexture("won");
 		this.popupAnimation(3);
-		// this.showConfetti();
+		this.gameWinSound();
 	}
 	popupAnimation = (nStar) => {
 		// this.physics.pause();
@@ -773,14 +829,6 @@ class Level extends Phaser.Scene {
 			nDelay += 400;
 		}
 	}
-	showConfetti = () => {
-		confetti({
-			particleCount: 80,
-			spread: 40,
-			origin: { y: 0.5 },
-		});
-	}
-
 	/* END-USER-CODE */
 }
 

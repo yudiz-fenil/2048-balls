@@ -57,6 +57,13 @@
                 "key": "b8"
             },
             {
+                "url": [
+                    "assets/sounds/bgm.mp3"
+                ],
+                "type": "audio",
+                "key": "bgm"
+            },
+            {
                 "url": "assets/images/buttons/btn_info.png",
                 "type": "image",
                 "key": "btn_info"
@@ -75,6 +82,20 @@
                 "url": "assets/images/bubble_lock.png",
                 "type": "image",
                 "key": "bubble_lock"
+            },
+            {
+                "url": [
+                    "assets/sounds/bubble-unlock.mp3"
+                ],
+                "type": "audio",
+                "key": "bubble-unlock"
+            },
+            {
+                "url": [
+                    "assets/sounds/button-tap.mp3"
+                ],
+                "type": "audio",
+                "key": "button-tap"
             },
             {
                 "url": "assets/images/shootingline/b16/c1.png",
@@ -217,6 +238,20 @@
                 "key": "GameManager"
             },
             {
+                "url": [
+                    "assets/sounds/gameover.mp3"
+                ],
+                "type": "audio",
+                "key": "gameover"
+            },
+            {
+                "url": [
+                    "assets/sounds/gamewin.mp3"
+                ],
+                "type": "audio",
+                "key": "gamewin"
+            },
+            {
                 "url": "src/scenes/Home.js",
                 "type": "sceneFile",
                 "key": "Home"
@@ -290,6 +325,13 @@
                 "url": "assets/images/popups/lost.png",
                 "type": "image",
                 "key": "lost"
+            },
+            {
+                "url": [
+                    "assets/sounds/merge.mp3"
+                ],
+                "type": "audio",
+                "key": "merge"
             },
             {
                 "url": "assets/images/buttons/Music_Off.png",
@@ -387,6 +429,13 @@
                 "key": "settings_base"
             },
             {
+                "url": [
+                    "assets/sounds/shoot.mp3"
+                ],
+                "type": "audio",
+                "key": "shoot"
+            },
+            {
                 "url": "assets/images/shoot_ball_bubble.png",
                 "type": "image",
                 "key": "shoot_ball_bubble"
@@ -405,6 +454,11 @@
                 "url": "assets/images/buttons/Sound_On.png",
                 "type": "image",
                 "key": "Sound_On"
+            },
+            {
+                "url": "src/scripts/SoundManager.js",
+                "type": "script",
+                "key": "SoundManager"
             },
             {
                 "url": "assets/images/popups/star.png",

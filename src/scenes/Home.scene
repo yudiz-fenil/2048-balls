@@ -57,7 +57,7 @@
             "scope": "CLASS",
             "components": [],
             "texture": {
-                "key": "Music_On"
+                "key": "Music_Off"
             },
             "x": 290,
             "y": 1630,

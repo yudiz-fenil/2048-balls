@@ -34,7 +34,7 @@ class Home extends Phaser.Scene {
 		const btn_play_button = this.add.image(540, 1213, "Play_Button");
 
 		// btn_music_on
-		const btn_music_on = this.add.image(290, 1630, "Music_On");
+		const btn_music_on = this.add.image(290, 1630, "Music_Off");
 		btn_music_on.scaleX = 0.8;
 		btn_music_on.scaleY = 0.8;
 
@@ -124,6 +124,39 @@ class Home extends Phaser.Scene {
 			}
 		})
 	}
+	btnTapSound = () => {
+		if (this.isSoundPlaying) {
+			this.oSoundManager.playSound(this.oSoundManager.btnTap, false);
+		}
+	}
+	init(data) {
+		if (data.oData) {
+			this.isMusicPlaying = data.oData.isMusicPlaying;
+			this.isSoundPlaying = data.oData.isSoundPlaying;
+		} else {
+			this.isMusicPlaying = false;
+			this.isSoundPlaying = true;
+		}
+	}
+	setMusicSound = () => {
+		if (this.isMusicPlaying) {
+			this.btn_music_on.setTexture("Music_On");
+			// this.playBGMusic();
+		} else {
+			this.btn_music_on.setTexture("Music_Off");
+		}
+		if (this.isSoundPlaying) {
+			this.btn_sound_on.setTexture("Sound_On");
+		} else {
+			this.btn_sound_on.setTexture("Sound_Off");
+		}
+	}
+	playBGMusic = () => {
+		if (!this.oSoundManager.bgm.isPlaying) {
+			this.oSoundManager.playSound(this.oSoundManager.bgm, true)
+		}
+	};
+	stopBGMusic = () => this.oSoundManager.stopSound(this.oSoundManager.bgm, false);
 	create() {
 		this.jellyFishAnimation(108, 1825, 1900, 500, false, 20000, 0);
 		this.jellyFishAnimation(1145, 1266, 0, 500, true, 20000, 0);
@@ -135,12 +168,14 @@ class Home extends Phaser.Scene {
 		this.jellyFishAnimation(-240, 1316, 985, -217, false, 20000, 1000);
 
 		this.editorCreate();
-		this.isMusicPlaying = true;
-		this.isSoundPlaying = true;
+		this.setMusicSound();
+		this.oSoundManager = new SoundManager(this);
 		this.btn_play_button.setInteractive().on('pointerdown', () => {
 			const callback = () => {
+				const oData = { isMusicPlaying: this.isMusicPlaying, isSoundPlaying: this.isSoundPlaying };
+				this.btnTapSound();
 				this.scene.stop("Home");
-				this.scene.start("Level");
+				this.scene.start("Level", { oData });
 			}
 			this.btnAnimation(this.btn_play_button, callback);
 		})
@@ -149,16 +184,19 @@ class Home extends Phaser.Scene {
 				if (this.isMusicPlaying) {
 					this.isMusicPlaying = false;
 					this.btn_music_on.setTexture("Music_Off")
+					this.stopBGMusic();
 				} else {
 					this.isMusicPlaying = true;
 					this.btn_music_on.setTexture("Music_On")
+					this.playBGMusic();
 				}
+				this.btnTapSound();
 			};
 			this.btnAnimation(this.btn_music_on, callback);
 		})
 		this.btn_info.setInteractive().on('pointerdown', () => {
 			const callback = () => {
-
+				this.btnTapSound();
 			};
 			this.btnAnimation(this.btn_info, callback);
 		})
@@ -171,6 +209,7 @@ class Home extends Phaser.Scene {
 					this.isSoundPlaying = true;
 					this.btn_sound_on.setTexture("Sound_On")
 				}
+				this.btnTapSound();
 			};
 			this.btnAnimation(this.btn_sound_on, callback);
 		})
@@ -184,7 +223,6 @@ class Home extends Phaser.Scene {
 		this.btn_play_button.on('pointerover', () => this.pointerOver([this.btn_play_button], 1));
 		this.btn_play_button.on('pointerout', () => this.pointerOut([this.btn_play_button], 1));
 	}
-
 	/* END-USER-CODE */
 }
 

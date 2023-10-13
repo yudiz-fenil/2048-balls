@@ -116,17 +116,59 @@
             "height": 1920
         },
         {
-            "prefabId": "07dea3d8-2b22-4930-a0e0-ec161bf64280",
-            "id": "1d101617-23ef-490c-8e28-dbbcad61ed15",
-            "unlock": [
-                "x",
-                "y"
-            ],
-            "label": "logoPrefab",
+            "type": "Image",
+            "id": "cafbdeeb-5ac0-4f61-ac5c-e371e25c6fb2",
+            "label": "home_logo_1",
             "components": [],
+            "texture": {
+                "key": "home_logo"
+            },
             "x": 540,
-            "y": 540,
-            "nestedPrefabs": []
+            "y": 540
+        },
+        {
+            "type": "Image",
+            "id": "7cf2c1ba-2e91-42df-b6b8-7e621f9347e0",
+            "label": "bl_3",
+            "components": [],
+            "texture": {
+                "key": "bl8"
+            },
+            "x": 767,
+            "y": 608
+        },
+        {
+            "type": "Image",
+            "id": "3e25cf82-a715-4eb3-a4f5-a82222c0a52e",
+            "label": "bl_2",
+            "components": [],
+            "texture": {
+                "key": "bl4"
+            },
+            "x": 605,
+            "y": 576
+        },
+        {
+            "type": "Image",
+            "id": "4564987a-d257-4296-986b-a98b583a4e0c",
+            "label": "bl_1",
+            "components": [],
+            "texture": {
+                "key": "bl0"
+            },
+            "x": 449,
+            "y": 582
+        },
+        {
+            "type": "Image",
+            "id": "d2e7b935-ec89-4185-9131-96bda98e32bf",
+            "label": "bl",
+            "components": [],
+            "texture": {
+                "key": "bl2"
+            },
+            "x": 292,
+            "y": 594
         }
     ],
     "plainObjects": [],
